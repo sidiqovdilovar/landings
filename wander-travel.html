@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WANDER — small-group journeys, planned end to end</title>
 <meta name="description" content="Slow small-group trips: eight travellers, real routes, local hosts. Browse the routes and the trip calendar.">
+<meta property="og:url" content="https://sidiqovdilovar.github.io/landings/wander-travel.html">
+<meta property="og:image" content="https://sidiqovdilovar.github.io/landings/img/og/wander.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sidiqovdilovar.github.io/landings/img/og/wander.jpg">
 <meta name="author" content="Dilovar Sidikov">
 <meta name="theme-color" content="#14161a">
 <meta property="og:type" content="website">
@@ -363,7 +369,12 @@
     background:#14161a;color:#fff;font-size:.92rem;font-weight:600;text-decoration:none;
     transform:translateY(-280%);transition:transform .2s ease}
   .skip:focus{transform:none}
-</style>
+
+@media print{
+    .skip{display:none!important}
+    .term{display:none!important}
+  }
+  </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
