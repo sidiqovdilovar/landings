@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ПИКСЕЛЬ — школа программирования и робототехники для детей 7–16 лет</title>
+<meta name="description" content="Занятия раз в неделю по 90 минут: Scratch, Python, веб и робототехника. Группы до 8 человек, свой проект на каждом уроке.">
+<meta name="author" content="Диловар Сидиков">
+<meta name="theme-color" content="#2e9e6a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ПИКСЕЛЬ — школа программирования и робототехники для детей 7–16 лет">
+<meta property="og:description" content="Занятия раз в неделю по 90 минут: Scratch, Python, веб и робототехника. Группы до 8 человек, свой проект на каждом уроке.">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="img/favicon-kids.png" type="image/png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --bg:#f6f9f7;
+    --bg-2:#e9f1ec;
+    --ink:#111a17;
+    --ink-70:rgba(17,26,23,.72);
+    --ink-55:rgba(17,26,23,.55);
+    --green:#2e9e6a;
+    --green-d:#1d6b48;
+    --line:rgba(17,26,23,.12);
+    --r:18px;
+    /* вертикальный ритм: та же шкала, что на остальных страницах портфолио */
+    --sec:clamp(88px,9.5vw,164px);
+    --sec-sm:clamp(64px,7vw,104px);
+    --gap:clamp(48px,4.6vw,80px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Manrope","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:16px;line-height:1.72;font-weight:400;letter-spacing:.002em;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* дружелюбный гротеск вместо антиквы: у детской школы другой характер */
+  h1,h2,h3{
+    margin:0;font-family:"Manrope",Arial,sans-serif;font-weight:700;
+    line-height:1.16;letter-spacing:-.025em;text-wrap:balance;
+  }
+  h1{font-size:clamp(2.2rem,4.9vw,3.8rem);line-height:1.07}
+  h2{font-size:clamp(1.75rem,3.2vw,2.7rem)}
+  h3{font-size:1.14rem;letter-spacing:-.01em}
+  p{margin:0;text-wrap:pretty}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(22px,3.4vw,40px)}
+  .label{
+    display:block;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--green-d);margin-bottom:24px;font-weight:600;
+  }
+  .lead{color:var(--ink-70);max-width:60ch}
+  .center{text-align:center}
+  .center .lead{margin-inline:auto}
+  .sec-head{max-width:680px;margin:0 auto var(--gap)}
+  .sec-head .lead{margin-top:20px}
+  ::selection{background:var(--green);color:#fff}
+  :focus-visible{outline:2px solid var(--green-d);outline-offset:4px}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:16px 32px;border:1px solid var(--ink);border-radius:999px;
+    font-size:.82rem;font-weight:600;letter-spacing:.01em;cursor:pointer;
+    transition:background .4s cubic-bezier(.2,.7,.3,1),color .4s cubic-bezier(.2,.7,.3,1),
+               border-color .4s cubic-bezier(.2,.7,.3,1),transform .4s cubic-bezier(.2,.7,.3,1);
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn--solid{background:var(--green-d);border-color:var(--green-d);color:#fff}
+  .btn--solid:hover{background:var(--ink);border-color:var(--ink)}
+  .btn--empty{border-color:rgba(17,26,23,.28)}
+  .btn--empty:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+  .btn--light{border-color:rgba(255,255,255,.6);color:#fff}
+  .btn--light:hover{background:#fff;border-color:#fff;color:var(--ink)}
+
+  /* шапка: светлая капсула поверх страницы */
+  .top{position:fixed;top:14px;left:0;right:0;z-index:40}
+  .top__in{
+    display:flex;align-items:center;gap:30px;
+    background:rgba(246,249,247,.94);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border:1px solid var(--line);border-radius:999px;
+    padding:10px clamp(22px,3.4vw,40px);
+    box-shadow:0 12px 30px rgba(17,26,23,.07);
+    transition:box-shadow .45s cubic-bezier(.2,.7,.3,1),background .45s;
+  }
+  .top.is-stuck .top__in{box-shadow:0 18px 38px rgba(17,26,23,.13);background:rgba(246,249,247,.99)}
+  .brand{
+    display:flex;align-items:center;gap:11px;color:var(--ink);font-weight:700;
+    letter-spacing:.16em;font-size:.9rem;text-transform:uppercase;white-space:nowrap;
+  }
+  .top .nav{display:flex;gap:28px;margin-left:auto}
+  .top .nav a{
+    color:var(--ink-70);font-size:.86rem;font-weight:500;padding:6px 0;
+    border-bottom:1px solid transparent;transition:color .3s,border-color .3s;
+  }
+  .top .nav a:hover{color:var(--ink);border-color:var(--green)}
+  .top__cta{
+    color:#fff;font-size:.78rem;font-weight:600;background:var(--green-d);
+    border:1px solid var(--green-d);border-radius:999px;padding:11px 22px;transition:.35s;
+  }
+  .top__cta:hover{background:var(--ink);border-color:var(--ink)}
+  .burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:#fff;cursor:pointer;position:relative}
+  .burger span{position:absolute;left:12px;right:12px;height:2px;border-radius:2px;background:var(--ink);transition:transform .3s}
+  .burger span:nth-child(1){top:17px}
+  .burger span:nth-child(2){top:24px}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
+
+  /* первый экран: текст слева, снимок в скруглённой рамке справа */
+  .hero{padding:clamp(120px,13vw,168px) 0 0;background:var(--bg)}
+  .hero__grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(30px,4.4vw,70px);align-items:center}
+  .hero h1{font-size:clamp(2rem,4.3vw,3.35rem);line-height:1.1}
+  .hero .label{color:var(--green-d)}
+  .hero p{color:var(--ink-70);max-width:44ch;margin-top:24px;font-size:1.04rem}
+  .hero__cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px}
+  .hero__pic{border-radius:28px;overflow:hidden;aspect-ratio:5/4;background:var(--bg-2)}
+  .hero__pic img{width:100%;height:100%;object-fit:cover}
+  .hero__marks{
+    display:flex;gap:clamp(30px,5vw,76px);margin-top:clamp(42px,5vw,72px);
+    padding-top:34px;border-top:1px solid var(--line);
+  }
+  .hero__marks b{display:block;font-size:clamp(1.7rem,2.6vw,2.1rem);font-weight:700;line-height:1.1}
+  .hero__marks span{display:block;margin-top:8px;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-55)}
+
+  section{padding:var(--sec) 0}
+  /* полосы «фото + текст»: фотография прижата к краю окна, текст — по общей сетке страницы */
+  .splitb{position:relative;padding:0}
+  .splitb__bg{position:absolute;inset:0 50% 0 0;overflow:hidden;background:#e9e4dc}
+  .splitb__bg img{width:100%;height:100%;object-fit:cover;display:block}
+  .splitb__grid{display:grid;grid-template-columns:1fr 1fr}
+  .splitb__text{grid-column:2;padding:var(--sec-sm) 0 var(--sec-sm) clamp(34px,4.6vw,76px)}
+  .splitb--rev .splitb__bg{inset:0 0 0 50%}
+  .splitb--rev .splitb__text{grid-column:1;padding:var(--sec-sm) clamp(34px,4.6vw,76px) var(--sec-sm) 0}
+  @media (max-width:900px){
+    .splitb__bg,.splitb--rev .splitb__bg{position:relative;inset:auto;height:clamp(230px,50vw,380px)}
+    .splitb__grid{grid-template-columns:1fr}
+    .splitb__text,.splitb--rev .splitb__text{grid-column:1;padding:clamp(40px,7vw,64px) 0 0}
+  }
+
+  section[id],main[id]{scroll-margin-top:96px}
+  .band{padding:0}
+
+  /* о школе */
+  .split{display:grid;grid-template-columns:1fr 1fr;align-items:center}
+  .split__text{padding:0 clamp(40px,6.4vw,96px)}
+  .split__text .lead{margin-top:24px}
+  .split__text .lead + .lead{margin-top:18px}
+  .about__cta{margin-top:clamp(34px,4vw,52px)}
+  .pic{overflow:hidden;background:var(--bg-2)}
+  .pic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.3,1)}
+  .pic:hover img{transform:scale(1.04)}
+  .band .pic{aspect-ratio:4/3}
+
+  /* программы */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r);
+    padding:34px 30px 36px;display:flex;flex-direction:column;
+    transition:transform .5s cubic-bezier(.2,.7,.3,1),box-shadow .5s,border-color .5s;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(17,26,23,.09);border-color:rgba(46,158,106,.45)}
+  .card__age{
+    display:inline-block;align-self:flex-start;background:var(--bg-2);color:var(--green-d);
+    font-size:.72rem;font-weight:700;letter-spacing:.1em;padding:7px 14px;border-radius:999px;
+  }
+  .card h3{margin-top:20px}
+  .card p{margin-top:14px;color:var(--ink-70);font-size:.96rem}
+  .card ul{margin:22px 0 0;padding:0;list-style:none;display:grid;gap:11px}
+  .card li{position:relative;padding-left:26px;font-size:.94rem;color:var(--ink-70)}
+  .card li::before{
+    content:"";position:absolute;left:0;top:9px;width:14px;height:8px;
+    border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg);
+  }
+
+  /* фотополоса */
+  .duo{display:grid;grid-template-columns:1.15fr 1fr;gap:14px}
+  .duo figure{margin:0;position:relative;overflow:hidden;border-radius:var(--r);background:var(--bg-2);aspect-ratio:16/11}
+  .duo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.3,1)}
+  .duo figure:hover img{transform:scale(1.045)}
+  .duo figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 24px;background:linear-gradient(transparent,rgba(9,20,15,.78));color:#fff;font-size:.86rem;font-weight:500}
+
+  /* как учим: шаги */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(26px,3vw,44px)}
+  .step b{display:block;font-size:.74rem;font-weight:700;letter-spacing:.18em;color:var(--green)}
+  .step h3{margin-top:16px;padding-top:18px;border-top:1px solid var(--line);font-size:1.06rem}
+  .step p{margin-top:12px;color:var(--ink-70);font-size:.94rem}
+
+  /* цифры */
+  .numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+  .numbers b{display:block;font-size:clamp(2.2rem,3.6vw,3.1rem);font-weight:700;line-height:1;letter-spacing:-.03em}
+  .numbers span{display:block;margin-top:12px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-55);line-height:1.6}
+
+  /* отзыв */
+  .quote-band{background:var(--green-d);color:#fff}
+  .quote{max-width:900px;margin:0 auto;text-align:center}
+  .quote p{font-size:clamp(1.2rem,2.1vw,1.72rem);line-height:1.5;font-weight:500;letter-spacing:-.01em}
+  .quote footer{margin-top:34px;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+  .quote-band .label{color:rgba(255,255,255,.7)}
+
+  /* цены */
+  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+  .price{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px 30px 36px;
+  }
+  .price--best{background:var(--bg-2);border-color:rgba(46,158,106,.4)}
+  .price__name{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-d)}
+  .price__sum{margin-top:18px;font-size:clamp(1.9rem,2.6vw,2.3rem);font-weight:700;letter-spacing:-.03em}
+  .price__sum em{font-style:normal;font-size:.9rem;font-weight:500;color:var(--ink-55);letter-spacing:0}
+  .price ul{margin:22px 0 28px;padding:0;list-style:none;display:grid;gap:12px}
+  .price li{position:relative;padding-left:24px;font-size:.94rem;color:var(--ink-70)}
+  .price li::before{content:"";position:absolute;left:0;top:10px;width:12px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+  .price .btn{width:100%}
+
+  /* вопросы */
+  .faq{max-width:880px;margin:0 auto}
+  .faq details{border-bottom:1px solid var(--line);padding:6px 0}
+  .faq summary{
+    list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;
+    font-size:1.04rem;font-weight:600;transition:color .3s;
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:hover{color:var(--green-d)}
+  .faq summary::after{
+    content:"";position:absolute;right:8px;top:50%;width:12px;height:12px;
+    border-right:2px solid var(--green);border-bottom:2px solid var(--green);
+    transform:translateY(-70%) rotate(45deg);transition:transform .35s cubic-bezier(.2,.7,.3,1);
+  }
+  .faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+  .faq p{padding:0 60px 26px 0;color:var(--ink-70);font-size:.96rem;max-width:68ch}
+
+  /* запись */
+  .signup{background:#0e1f18;color:#fff}
+  .signup__in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(44px,5vw,90px);align-items:start}
+  .signup .label{color:rgba(255,255,255,.7)}
+  .signup h2{color:#fff}
+  .signup p{color:rgba(255,255,255,.8);margin-top:22px;max-width:46ch}
+  .signup__list{margin:34px 0 0;padding:0;list-style:none;display:grid;gap:14px}
+  .signup__list li{position:relative;padding-left:26px;font-size:.94rem;color:rgba(255,255,255,.82)}
+  .signup__list li::before{content:"";position:absolute;left:0;top:9px;width:13px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+  form .row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .field{margin-bottom:22px}
+  label{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px;font-weight:600}
+  input,select,textarea{
+    width:100%;padding:13px 2px;font:inherit;font-weight:400;font-size:.98rem;color:#fff;
+    background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.3);border-radius:0;
+    transition:border-color .4s cubic-bezier(.2,.7,.3,1);
+  }
+  input::placeholder,textarea::placeholder{color:rgba(255,255,255,.38)}
+  input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--green);box-shadow:0 0 0 3px rgba(46,158,106,.34)}
+  textarea{min-height:84px;resize:vertical}
+  select option{color:#111a17}
+  .form__note{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:16px}
+  .form__ok{display:none;margin-top:18px;padding:14px 18px;border:1px solid var(--green);border-radius:12px;color:#dff3e8;font-size:.92rem}
+  .form__ok.is-visible{display:block}
+
+  /* подвал: зелёная полоса с приглашением и контактами-чипами */
+  footer.foot{background:var(--bg-2);padding:0 0 34px}
+  .foot__top h2{margin-top:22px}
+  .foot__top{
+    display:grid;grid-template-columns:1.2fr auto;gap:clamp(24px,4vw,60px);align-items:center;
+    padding-top:clamp(44px,5vw,72px);padding-bottom:clamp(34px,4vw,52px);
+  }
+  .foot__top h2{font-size:clamp(1.4rem,2.6vw,2rem)}
+  .foot__top p{margin-top:14px;color:var(--ink-70);max-width:44ch}
+  .foot__chips{display:flex;flex-wrap:wrap;gap:10px;padding-bottom:clamp(30px,4vw,46px);border-bottom:1px solid var(--line)}
+  @media (max-width:760px){.top__in{width:auto;margin-left:14px;margin-right:14px;padding-left:8px;padding-right:8px}}
+  .foot__chips a,.foot__chips span{
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 18px;
+    font-size:.86rem;color:var(--ink-70);transition:border-color .4s,color .4s,transform .4s;
+  }
+  .foot__chips a:hover{border-color:var(--green);color:var(--ink);transform:translateY(-2px)}
+  .foot__base{
+    display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
+    padding-top:26px;font-size:.82rem;color:var(--ink-55);
+  }
+  .foot__base nav{display:flex;flex-wrap:wrap;gap:20px}
+  .foot__base a{transition:color .3s}
+  .foot__base a:hover{color:var(--ink)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:1020px){
+    .split{grid-template-columns:1fr}
+    .split__text{padding:clamp(40px,7vw,64px) clamp(22px,5vw,40px) 0}
+    .cards,.prices{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .numbers{grid-template-columns:1fr 1fr;gap:34px}
+    .duo{grid-template-columns:1fr}
+    .signup__in{grid-template-columns:1fr}
+    .hero__grid{grid-template-columns:1fr}
+    .hero__marks{flex-wrap:wrap;gap:32px}
+  }
+  @media (max-width:760px){
+    .top .nav{
+      position:absolute;left:0;right:0;top:calc(100% + 10px);flex-direction:column;gap:0;margin:0;
+      background:#0e1f18;max-height:0;overflow:hidden;border-radius:20px;
+      box-shadow:0 24px 40px rgba(9,20,15,.35);
+      transition:max-height .45s cubic-bezier(.2,.7,.3,1);
+    }
+    .top .nav.is-open{max-height:340px}
+    .top .nav a{padding:17px 26px;border-bottom:1px solid rgba(255,255,255,.12);color:#fff}
+    .top.is-stuck .nav a{color:#fff}
+    .burger{display:block;margin-left:auto}
+    .top__cta{display:none}
+    .steps{grid-template-columns:1fr}
+    .numbers{grid-template-columns:1fr 1fr}
+    form .row{grid-template-columns:1fr}
+    .hero__marks{gap:26px}
+    .hero__marks b{font-size:1.4rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn:hover,.card:hover{transform:none}
+    .pic:hover img,.duo figure:hover img{transform:none}
+  }
+
+    /* цель нажатия в подвале — не меньше 24 px по высоте (WCAG 2.2 AA) на любом указателе */
+  footer a{display:inline-block;padding-top:4px;padding-bottom:4px}
+@media (max-width:760px){
+    .label{font-size:.74rem}
+    .hero__marks span,.numbers span,.format__meta,.price-note,.gallery figcaption,.foot__cap,
+    .faculty li div > span,.quote-band footer,.cta__side dt,.top__utilin,.trip__meta span,
+    .format__tag,.price__tag,.filters span{font-size:.72rem}
+    footer a,.work__link,.sections a{display:inline-block;padding-top:9px;padding-bottom:9px}
+    label{font-size:.78rem}
+    .level b,.hero__barin span,.values span,.stats span,.trip__meta span,.level__code + b{font-size:.72rem}
+    .top .nav a{display:block;padding-top:15px;padding-bottom:15px}
+
+    .brand{padding-top:6px;padding-bottom:6px}
+  
+    footer a{padding-top:12px;padding-bottom:12px}
+    .foot__nav a,footer nav a{padding-left:6px;padding-right:6px;margin-left:-6px;margin-right:-6px}
+}
+
+  /* заметная подсказка вместо молчаливого отказа формы */
+  .is-error{border-color:#ffcbb8 !important;box-shadow:0 0 0 1px #ffcbb8}
+  p.form__error{display:none;margin-top:16px;font-size:.9rem;color:#ffcbb8}
+  .form__error.is-on{display:block}
+
+  /* «к содержанию»: видно только при навигации с клавиатуры */
+  .skip{position:fixed;left:16px;top:16px;z-index:999;padding:12px 18px;border-radius:2px;
+    background:#14161a;color:#fff;font-size:.92rem;font-weight:600;text-decoration:none;
+    transform:translateY(-280%);transition:transform .2s ease}
+  .skip:focus{transform:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#top">Перейти к содержанию</a>
+
+<header class="top" id="header">
+  <div class="wrap top__in">
+    <a class="brand" href="#top"><img src="img/logo-kids.png" alt="" width="34" height="34">Пиксель</a>
+    <nav class="nav" id="nav">
+      <a href="#about">О школе</a>
+      <a href="#programs">Программы</a>
+      <a href="#how">Как учим</a>
+      <a href="#prices">Цены</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="top__cta" href="#signup">Пробное занятие</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav" type="button">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top" tabindex="-1">
+
+  <!-- Первый экран -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <span class="label">7–16 лет · группы до 8 человек</span>
+        <h1>Дети делают игры, роботов и сайты — руками</h1>
+        <p>Занятие раз в неделю по 90 минут. Каждый урок заканчивается работающим проектом: его можно запустить дома и показать друзьям.</p>
+        <div class="hero__cta">
+          <a class="btn btn--solid" href="#signup">Записаться на пробное</a>
+          <a class="btn btn--empty" href="#programs">Программы</a>
+        </div>
+      </div>
+      <div class="hero__pic">
+        <img src="img/kids-hero.jpg" alt="Дети занимаются на ноутбуках в светлом классе" width="1536" height="1024">
+      </div>
+    </div>
+    <div class="wrap hero__marks">
+      <div><b>8</b><span>человек в группе</span></div>
+      <div><b>90</b><span>минут занятие</span></div>
+      <div><b>3</b><span>ступени по возрасту</span></div>
+    </div>
+  </section>
+
+  <!-- О школе -->
+  <section id="about" class="band">
+    <div class="splitb">
+      <div class="splitb__bg"><img src="img/kids-teacher.jpg" alt="Преподаватель помогает ребёнку с заданием" loading="lazy" width="1100" height="733"></div>
+      <div class="wrap splitb__grid">
+        <div class="splitb__text reveal">
+        <span class="label">О школе</span>
+        <h2>Не «урок информатики», а навык, который остаётся</h2>
+        <p class="lead">Мы открылись в 2017 году: два класса, четыре преподавателя и правило, из которого выросла вся программа — ребёнок должен уходить с занятия с чем-то работающим. Не с конспектом, а с игрой, роботом или страницей сайта.</p>
+        <p class="lead">Поэтому в группе не больше восьми человек: преподаватель успевает подойти к каждому, а не диктовать с экрана. Программа идёт ступенями — от визуального Scratch к настоящему Python и вёрстке.</p>
+        <div class="about__cta"><a class="btn btn--empty" href="#how">Как проходят занятия</a></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Программы -->
+  <section id="programs">
+    <div class="wrap">
+      <div class="center reveal sec-head">
+        <span class="label">Программы</span>
+        <h2>Три ступени — по возрасту и опыту</h2>
+        <p class="lead">Перейти на следующую ступень можно в любой момент: смотрим не на возраст в документах, а на то, что ребёнок уже умеет делать сам.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <span class="card__age">7–9 лет</span>
+          <h3>Первые программы</h3>
+          <p>Начинаем со Scratch и логики: как собрать историю из блоков, чтобы персонаж двигался и реагировал на клавиши.</p>
+          <ul>
+            <li>Своя игра или мультфильм за занятие</li>
+            <li>Основы алгоритмов и циклов</li>
+            <li>Первые шаги в робототехнике</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <span class="card__age">10–12 лет</span>
+          <h3>Игры и первые сайты</h3>
+          <p>Переходим от блоков к коду: Scratch для игр, HTML и CSS для собственной страницы в интернете.</p>
+          <ul>
+            <li>Python: переменные, условия, циклы</li>
+            <li>Своя игра на несколько уровней</li>
+            <li>Личный сайт-визитка в интернете</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <span class="card__age">13–16 лет</span>
+          <h3>Python, веб и роботы</h3>
+          <p>Работаем как в маленькой студии: ставим задачу, разбиваем на этапы, показываем результат на защите проекта.</p>
+          <ul>
+            <li>Python: функции, данные, библиотеки</li>
+            <li>Вёрстка и основы JavaScript</li>
+            <li>Роботы на микроконтроллерах</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Фотополоса -->
+  <section class="band">
+    <div class="wrap duo">
+      <figure class="reveal">
+        <img src="img/kids-hands.jpg" loading="lazy" alt="Ребёнок печатает код на ноутбуке" loading="lazy" width="1000" height="666">
+        <figcaption>Печатают руками с первого месяца — не перетаскивают блоки мышкой</figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="img/kids-robot.jpg" alt="Дети собирают робота из образовательного набора" loading="lazy" width="1000" height="667">
+        <figcaption>Собираем робота, подключаем датчики и проверяем в деле</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Как учим -->
+  <section id="how">
+    <div class="wrap">
+      <div class="center reveal sec-head">
+        <span class="label">Как учим</span>
+        <h2>Одинаковый сценарий каждого занятия</h2>
+        <p class="lead">Дети быстро привыкают к порядку: они знают, что сначала будет теория, потом практика, а в конце — защита того, что получилось.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <b>01</b>
+          <h3>Разбор</h3>
+          <p>Пятнадцать минут теории: показываем новую команду или приём на простом примере.</p>
+        </div>
+        <div class="step reveal">
+          <b>02</b>
+          <h3>Практика</h3>
+          <p>Ребёнок повторяет сам, преподаватель рядом подсказывает и не делает задачу за него.</p>
+        </div>
+        <div class="step reveal">
+          <b>03</b>
+          <h3>Свой проект</h3>
+          <p>Придумываем, как применить приём в своей игре или роботе, и собираем это до конца занятия.</p>
+        </div>
+        <div class="step reveal">
+          <b>04</b>
+          <h3>Показ</h3>
+          <p>Пять минут в конце: каждый показывает результат и объясняет, как он это сделал.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Цифры -->
+  <section>
+    <div class="wrap numbers">
+      <div class="reveal"><b>2017</b><span>год основания школы</span></div>
+      <div class="reveal"><b>8</b><span>человек в группе</span></div>
+      <div class="reveal"><b>90</b><span>минут одно занятие</span></div>
+      <div class="reveal"><b>12</b><span>проектов за учебный год</span></div>
+    </div>
+  </section>
+
+  <!-- Отзыв -->
+  <section class="quote-band">
+    <div class="wrap reveal">
+      <blockquote class="quote">
+        <span class="label">Отзыв родителя</span>
+        <p>«Сын ходил на робототехнику полгода и всё время рассказывал, что они «собирали схемы». Здесь через месяц принёс игру про ёжика, которую сделал сам, и заставил меня в неё играть. Разница для меня именно в этом».</p>
+        <footer>Алексей, папа Матвея, 10 лет</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Цены -->
+  <section id="prices">
+    <div class="wrap">
+      <div class="center reveal sec-head">
+        <span class="label">Цены</span>
+        <h2>Занятия и абонементы</h2>
+        <p class="lead">Первое занятие бесплатное: посмотрим, как ребёнок работает в группе, и предложим подходящую ступень.</p>
+      </div>
+
+      <div class="prices">
+        <article class="price reveal">
+          <p class="price__name">Пробное занятие</p>
+          <p class="price__sum">0 ₽ <em>одно занятие</em></p>
+          <ul>
+            <li>90 минут в группе</li>
+            <li>Ребёнок уносит первую программу</li>
+            <li>Разбор с преподавателем после урока</li>
+          </ul>
+          <a class="btn btn--empty" href="#signup">Записаться</a>
+        </article>
+
+        <article class="price price--best reveal">
+          <p class="price__name">Месяц, 4 занятия</p>
+          <p class="price__sum">4 800 ₽ <em>за месяц</em></p>
+          <ul>
+            <li>Один урок в неделю по 90 минут</li>
+            <li>Группа до 8 человек</li>
+            <li>Пропущенное занятие отрабатываем</li>
+            <li>Отчёт о прогрессе раз в месяц</li>
+          </ul>
+          <a class="btn btn--solid" href="#signup">Записаться</a>
+        </article>
+
+        <article class="price reveal">
+          <p class="price__name">Летний интенсив</p>
+          <p class="price__sum">14 000 ₽ <em>две недели</em></p>
+          <ul>
+            <li>Пять занятий в неделю, утро или день</li>
+            <li>Один большой проект за смену</li>
+            <li>Защита перед родителями в последний день</li>
+          </ul>
+          <a class="btn btn--empty" href="#signup">Оставить заявку</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Вопросы -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="center reveal sec-head">
+        <span class="label">Вопросы</span>
+        <h2>Что обычно спрашивают родители</h2>
+      </div>
+
+      <div class="faq reveal">
+        <details open>
+          <summary>Нужно ли приходить со своим ноутбуком?</summary>
+          <p>Нет. В классах есть ноутбуки, конструкторы и всё для робототехники. Если у ребёнка есть свой ноутбук и ему удобнее работать на нём — приносите, поможем настроить среду на первом занятии.</p>
+        </details>
+        <details>
+          <summary>Что делать, если ребёнок стесняется и молчит?</summary>
+          <p>Это встречается часто, поэтому группы набираем маленькими: в них проще заговорить. Первые занятия преподаватель даёт задачи, где ответ не нужен словами — результат видно на экране. Обычно к третьему уроку дети начинают спрашивать сами.</p>
+        </details>
+        <details>
+          <summary>С какого возраста можно начинать?</summary>
+          <p>С семи лет — при условии, что ребёнок уверенно читает. До этого Scratch и робототехника даются тяжело: нужно читать блоки и подписи. Если сомневаетесь, приходите на пробное занятие: преподаватель скажет честно, готов ли ребёнок к программе или стоит подождать год.</p>
+        </details>
+        <details>
+          <summary>Сколько детей в группе и как их подбирают?</summary>
+          <p>До восьми человек. Подбираем по возрасту и уровню: смотрим, занимался ребёнок раньше и что уже умеет делать самостоятельно. Если по уровню ребёнок сильно опережает группу, предложим ступень выше.</p>
+        </details>
+        <details>
+          <summary>Можно ли перенести занятие?</summary>
+          <p>Да. Если предупредить хотя бы за день, занятие не сгорает: подберём другую группу на той же ступени или добавим урок в конце месяца. Заболели всей семьёй — просто напишите, решим без штрафов.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Запись -->
+  <section class="signup" id="signup">
+    <div class="wrap signup__in">
+      <div class="reveal">
+        <span class="label">Запись</span>
+        <h2>Пробное занятие бесплатно</h2>
+        <p>Оставьте контакты — перезвоним, спросим про интересы ребёнка и предложим время. Ничего продавать по телефону не будем: сначала занятие, потом решение.</p>
+        <ul class="signup__list">
+          <li>Подберём группу по возрасту и уровню</li>
+          <li>Расскажем, что ребёнок сделает на первом уроке</li>
+          <li>После занятия дадим честную обратную связь</li>
+        </ul>
+      </div>
+
+      <form id="book" novalidate class="reveal">
+        <div class="row">
+          <div class="field">
+            <label for="parent">Ваше имя</label>
+            <input id="parent" name="parent" type="text" placeholder="Имя родителя" required maxlength="80">
+          </div>
+          <div class="field">
+            <label for="phone">Телефон</label>
+            <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required autocomplete="tel" maxlength="18">
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="kid">Имя ребёнка</label>
+            <input id="kid" name="kid" type="text" placeholder="Как зовут ребёнка" maxlength="80">
+          </div>
+          <div class="field">
+            <label for="age">Возраст</label>
+            <select id="age" name="age">
+              <option>7–9 лет</option>
+              <option>10–12 лет</option>
+              <option>13–16 лет</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="msg">Что важно знать</label>
+          <textarea id="msg" name="msg" placeholder="Занимался ли раньше, удобное время, пожелания" maxlength="600"></textarea>
+        </div>
+        <button class="btn btn--solid" type="submit">Записаться на пробное</button>
+        <p class="form__note">Форма проверяет поля и показывает состояния. Приём заявок с сохранением в базу — в сервисе Leadbox из этого портфолио.</p>
+        <p class="form__ok" id="ok">Спасибо! Заявка принята.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__top">
+    <div>
+      <a class="brand" href="#top"><img src="img/logo-kids.png" alt="" width="34" height="34">Пиксель</a>
+      <h2>Приходите на пробное занятие</h2>
+      <p>90 минут, бесплатно и без обязательств: ребёнок уходит с первой готовой программой, а вы — с пониманием, подходит ли ему такая учёба.</p>
+    </div>
+    <a class="btn btn--solid" href="#signup">Записаться на пробное</a>
+  </div>
+  <div class="wrap foot__chips">
+    <span>Москва, ул. Менжинского, 9 · вход со двора</span>
+    <a href="tel:+74951234567">+7 495 123-45-67</a>
+    <a href="mailto:hello@pixel-school.ru">hello@pixel-school.ru</a>
+    <span>Пн–Пт 12:00–20:00 · Сб 10:00–16:00</span>
+  </div>
+  <div class="wrap foot__base">
+    <span>© <span id="year"></span> Школа «ПИКСЕЛЬ»</span>
+    <nav><a href="#about">О школе</a><a href="#programs">Программы</a><a href="#prices">Цены</a><a href="#faq">Вопросы</a><a href="showcase.html">Все проекты</a></nav>
+    <a href="#top">Наверх ↑</a>
+  </div>
+</footer>
+
+<script>
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  burger.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // шапка: прозрачная поверх фото, дальше — светлая плашка
+  var header = document.getElementById('header');
+  var hero = document.querySelector('.hero');
+  var ticking = false;
+  function onScroll() {
+    header.classList.toggle('is-stuck', window.scrollY >= hero.offsetHeight - 90);
+  }
+  onScroll();
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { onScroll(); ticking = false; });
+  }, { passive: true });
+
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // ==== ввод телефона и почты: ограничение, маска, проверка формата ====
+  function digitsOnly(v) { return v.replace(/\D/g, ''); }
+  function ruFormat(d) {
+    if (!d) return '';
+    if (d.charAt(0) !== '7') return '+' + d.slice(0, 15);   // иностранный номер оставляем как есть
+    var out = '+7', r = d.slice(1);
+    if (r) out += ' (' + r.slice(0, 3);
+    if (r.length >= 3) out += ')';
+    if (r.length > 3) out += ' ' + r.slice(3, 6);
+    if (r.length > 6) out += '-' + r.slice(6, 8);
+    if (r.length > 8) out += '-' + r.slice(8, 10);
+    return out;
+  }
+  // 8… и 9… приводим к +7…, лишние цифры (больше 11) отбрасываем
+  function ruDigits(raw) {
+    var d = digitsOnly(raw);
+    if (d.charAt(0) === '8') d = '7' + d.slice(1);
+    else if (d.charAt(0) === '9') d = '7' + d;
+    return d.slice(0, 11);
+  }
+  // каретка: в конец, если печатают/вставляют в конец; иначе — за той же цифрой
+  function putCaret(el, res, left, atEnd) {
+    el.value = res;
+    var i;
+    if (atEnd) { i = res.length; }
+    else {
+      i = 0; var seen = 0;
+      while (i < res.length && seen < left) { if (/\d/.test(res.charAt(i))) seen++; i++; }
+      while (i < res.length && !/\d/.test(res.charAt(i))) i++;
+    }
+    try { el.setSelectionRange(i, i); } catch (e) {}
+  }
+  function applyPhoneMask(el) {
+    var raw = el.value;
+    var caret = el.selectionStart === null ? raw.length : el.selectionStart;
+    var left = digitsOnly(raw.slice(0, caret)).length;
+    var res = ruFormat(ruDigits(raw));
+    if (res !== raw) putCaret(el, res, left, caret >= raw.length);
+  }
+  function maskPhone(el) {
+    if (!el) return;
+    el.setAttribute('maxlength', '18');
+    el.addEventListener('input', function () { applyPhoneMask(el); });
+  }
+  // «+7 или @username»: два режима в одном поле
+  function maskContact(el) {
+    if (!el) return;
+    el.setAttribute('maxlength', '64');
+    el.addEventListener('input', function () {
+      if (el.value.replace(/\s/g, '').charAt(0) === '@') {
+        var nick = '@' + el.value.replace(/\s/g, '').slice(1).replace(/[^A-Za-z0-9_]/g, '').slice(0, 32);
+        if (nick !== el.value) el.value = nick;
+        return;
+      }
+      applyPhoneMask(el);
+    });
+  }
+  function phoneOk(v) {
+    var d = digitsOnly(v);
+    if (d.charAt(0) === '7' || d.charAt(0) === '8') return d.length === 11;
+    return d.length >= 10 && d.length <= 15;
+  }
+  function contactOk(v) {
+    if (v.charAt(0) === '@') return /^@[A-Za-z0-9_]{4,32}$/.test(v);
+    return phoneOk(v);
+  }
+  function trimSpaces(el) {
+    if (!el) return;
+    el.addEventListener('input', function () {
+      var v = el.value.replace(/\s+/g, '');
+      if (v !== el.value) el.value = v;
+    });
+  }
+  function emailOk(v) {
+    if (v.length > 254) return false;
+    var m = /^([^\s@]{1,64})@([^\s@]+\.[A-Za-z]{2,24})$/.exec(v);
+    if (!m) return false;
+    if (/^\.|\.$|\.\./.test(m[1])) return false;
+    if (/\.\./.test(m[2])) return false;
+    return /^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+$/.test(m[2]);
+  }
+  // ==== конец блока форматирования ====
+
+  maskPhone(document.getElementById('phone'));
+
+  var formEl = document.getElementById('book');
+
+  // подсветка незаполненных и неверно заполненных полей
+  var FORMATS = {phone: phoneOk};
+  var NOTE_EMPTY = 'Заполните имя и телефон — перезвоним и подберём группу.';
+  var NOTE_FORMAT = 'Проверьте номер телефона: нужно 11 цифр, например +7 495 123-45-67.';
+  function markErrors(fields) {
+    var bad = [], form = fields[0].form, badFormat = false;
+    fields.forEach(function (el) {
+      var v = el.value.trim(), why = '';
+      if (!v) why = 'empty';
+      else if (FORMATS[el.id] && !FORMATS[el.id](v)) why = 'format';
+      if (why) {
+        el.classList.add('is-error');
+        el.setAttribute('aria-invalid', 'true');
+        if (why === 'format') badFormat = true;
+        bad.push(el);
+      } else {
+        el.classList.remove('is-error');
+        el.removeAttribute('aria-invalid');
+      }
+      el.addEventListener('input', function () {
+        el.classList.remove('is-error');
+        el.removeAttribute('aria-invalid');
+      }, { once: true });
+    });
+    var note = form.querySelector('.form__error');
+    if (!note) {
+      note = document.createElement('p');
+      note.className = 'form__error';
+      note.setAttribute('aria-live', 'polite');
+      form.appendChild(note);
+    }
+    note.textContent = bad.length ? (badFormat ? NOTE_FORMAT : NOTE_EMPTY) : '';
+    note.classList.toggle('is-on', bad.length > 0);
+    if (bad.length) bad[0].focus();
+    return bad.length === 0;
+  }
+
+  formEl.addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    var fields = ['parent','phone'].map(function (id) { return document.getElementById(id); });
+    if (!markErrors(fields)) return;
+    document.getElementById('ok').classList.add('is-visible');
+    this.reset();
+  
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

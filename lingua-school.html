@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЛИНГВА — школа английского языка в Москве</title>
+<meta name="description" content="Школа английского языка: группы до 6 человек, индивидуальные занятия, разговорный клуб. Первое занятие бесплатно.">
+<meta name="author" content="Диловар Сидиков">
+<meta name="theme-color" content="#101833">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ЛИНГВА — школа английского для взрослых">
+<meta property="og:description" content="Мини-группы до 6 человек, разговорная практика с первого занятия, пробный урок бесплатно.">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101833'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='17' fill='%23c8b26a' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --white:#ffffff;
+    --paper:#f5f4f1;
+    --ink:#101833;
+    --ink-70:rgba(16,24,51,.72);
+    --ink-50:rgba(16,24,51,.5);
+    --gold:#b9a15e;
+    --gold-ink:#7d6529;
+    --line:rgba(16,24,51,.13);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--white);color:var(--ink);
+    font-family:"Manrope","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:16px;line-height:1.75;font-weight:300;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    margin:0;font-family:"Playfair Display",Georgia,"Times New Roman",serif;
+    font-weight:400;line-height:1.16;letter-spacing:-.012em;text-wrap:balance;
+  }
+  h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.06;letter-spacing:-.022em;font-weight:500}
+  h2{font-size:clamp(1.95rem,3.6vw,2.95rem);line-height:1.12;font-weight:500;letter-spacing:-.018em}
+  h3{font-size:1.12rem;font-weight:500}
+  p{margin:0;text-wrap:pretty}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(22px,3.4vw,40px)}
+
+  /* вертикальный ритм: та же шкала, что на кофейной странице */
+  :root{--sec:clamp(88px,9.5vw,164px);--sec-sm:clamp(64px,7vw,104px);--gap:clamp(48px,4.6vw,80px)}
+  .label{
+    display:flex;align-items:center;gap:14px;font-size:.72rem;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--gold-ink);margin-bottom:26px;
+  }
+  .label::before{content:"";width:34px;height:1px;background:var(--gold);flex:0 0 auto}
+  .center .label{justify-content:center}
+  .lead{color:var(--ink-70);max-width:60ch}
+  .center{text-align:center}
+  .center .lead{margin-inline:auto}
+  .sec-head{max-width:660px;margin:0 auto var(--gap)}
+  .sec-head .lead{margin-top:22px}
+  ::selection{background:var(--gold);color:#101833}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+  .btn{
+    display:inline-block;padding:17px 38px;border:1px solid var(--ink);
+    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+    transition:background .4s cubic-bezier(.2,.7,.3,1),color .4s cubic-bezier(.2,.7,.3,1),
+               border-color .4s cubic-bezier(.2,.7,.3,1),transform .4s cubic-bezier(.2,.7,.3,1);
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn--solid{background:var(--ink);color:#fff}
+  .btn--solid:hover{background:transparent;color:var(--ink)}
+  .btn--empty:hover{background:var(--ink);color:#fff}
+  .btn--light{border-color:rgba(255,255,255,.8);color:#fff}
+  .btn--light:hover{background:#fff;color:var(--ink);border-color:#fff}
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+  /* header: верхняя служебная полоса + основная строка */
+  .top{
+    position:fixed;top:0;left:0;right:0;z-index:40;
+    border-bottom:1px solid rgba(255,255,255,.2);
+    transition:background .45s cubic-bezier(.2,.7,.3,1),border-color .45s,box-shadow .45s;
+  }
+  .top__util{
+    background:#0a1129;color:rgba(255,255,255,.78);overflow:hidden;max-height:52px;
+    transition:max-height .5s cubic-bezier(.2,.7,.3,1),opacity .4s;
+  }
+  .top.is-stuck .top__util{max-height:0;opacity:0}
+  .top__utilin{
+    display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;
+    padding-top:11px;padding-bottom:11px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  }
+  .top__utilin a{color:var(--gold)}
+  .top.is-stuck{
+    background:rgba(255,255,255,.92);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border-bottom-color:var(--line);box-shadow:0 1px 30px rgba(16,24,51,.06);
+  }
+  .top__in{display:flex;align-items:center;gap:34px;padding-top:22px;padding-bottom:22px;transition:padding .45s}
+  .top.is-stuck .top__in{padding-top:14px;padding-bottom:14px}
+  .brand{
+    display:flex;align-items:center;gap:12px;color:#fff;font-size:.84rem;
+    letter-spacing:.42em;text-transform:uppercase;transition:color .4s;white-space:nowrap;
+  }
+  .top.is-stuck .brand{color:var(--ink)}
+  .brand--foot{color:var(--ink)}
+  .brand i{width:9px;height:9px;border-radius:50%;background:var(--gold);display:block}
+  .top .nav{display:flex;gap:32px;margin-left:auto}
+  .top .nav a{color:rgba(255,255,255,.85);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding:6px 0;border-bottom:1px solid transparent;transition:.2s}
+  .top .nav a:hover{color:#fff;border-color:var(--gold)}
+  .top.is-stuck .nav a{color:rgba(16,24,51,.72)}
+  .top.is-stuck .nav a:hover{color:var(--ink);border-color:var(--gold)}
+
+  @media (min-width:761px){
+    .top .nav a{position:relative}
+    .top .nav a::after{
+      content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);
+      transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.3,1);
+    }
+    .top .nav a:hover{border-color:transparent}
+    .top .nav a:hover::after{transform:scaleX(1)}
+  }
+  .top__cta{color:#fff;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(255,255,255,.6);padding:12px 22px;transition:.2s}
+  .top__cta:hover{background:#fff;color:var(--ink);border-color:#fff}
+  .top.is-stuck .top__cta{color:var(--ink);border-color:rgba(16,24,51,.25)}
+  .top.is-stuck .top__cta:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .burger{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.5);background:transparent;cursor:pointer;position:relative}
+  .burger span{position:absolute;left:12px;right:12px;height:1.4px;background:#fff;transition:transform .25s}
+  .burger span:nth-child(1){top:18px}
+  .burger span:nth-child(2){top:25px}
+  .top.is-stuck .burger{border-color:rgba(16,24,51,.25)}
+  .top.is-stuck .burger span{background:var(--ink)}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
+
+  /* hero */
+  /* первый экран: тёмно-синяя панель слева, фотография справа во всю высоту */
+  .hero{background:var(--ink);color:#fff}
+  .hero__grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:min(92vh,860px)}
+  .hero__panel{display:flex;align-items:center}
+  .hero__panelin{
+    width:100%;
+    padding:clamp(140px,15vw,190px) clamp(30px,4vw,70px) clamp(56px,6vw,90px)
+            calc(max((100vw - 1240px) / 2, 0px) + clamp(22px,3.4vw,40px));
+  }
+  .hero h1{color:#fff;max-width:18ch;font-size:clamp(2.1rem,4.2vw,3.3rem)}
+  .hero .label{color:var(--gold)}
+  .hero p{color:rgba(255,255,255,.82);max-width:44ch;margin-top:24px;font-size:1.02rem}
+  .hero__cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px}
+  .hero__photo{position:relative;overflow:hidden;background:#0a1129}
+  .hero__photo img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .hero__photo::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(10,17,41,.95) 0%,rgba(10,17,41,.62) 22%,rgba(10,17,41,0) 52%);
+  }
+  .hero__marks{
+    display:flex;gap:46px;margin-top:clamp(40px,4.5vw,64px);
+    padding-top:30px;border-top:1px solid rgba(255,255,255,.2);
+  }
+  .hero__marks b{display:block;font-size:1.5rem;font-weight:400;color:#fff}
+  .hero__marks span{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+
+  section{padding:var(--sec) 0}
+  /* полосы «фото + текст»: фотография прижата к краю окна, текст — по общей сетке страницы */
+  .splitb{position:relative;padding:0}
+  .splitb__bg{position:absolute;inset:0 50% 0 0;overflow:hidden;background:#e9e4dc}
+  .splitb__bg img{width:100%;height:100%;object-fit:cover;display:block}
+  .splitb__grid{display:grid;grid-template-columns:1fr 1fr}
+  .splitb__text{grid-column:2;padding:var(--sec-sm) 0 var(--sec-sm) clamp(34px,4.6vw,76px)}
+  .splitb--rev .splitb__bg{inset:0 0 0 50%}
+  .splitb--rev .splitb__text{grid-column:1;padding:var(--sec-sm) clamp(34px,4.6vw,76px) var(--sec-sm) 0}
+  @media (max-width:900px){
+    .splitb__bg,.splitb--rev .splitb__bg{position:relative;inset:auto;height:clamp(230px,50vw,380px)}
+    .splitb__grid{grid-template-columns:1fr}
+    .splitb__text,.splitb--rev .splitb__text{grid-column:1;padding:clamp(40px,7vw,64px) 0 0}
+  }
+
+  section[id],main[id]{scroll-margin-top:96px}
+  .band{padding:0}
+  .split{display:grid;grid-template-columns:1fr 1fr;align-items:center}
+  .split__text{padding:0 clamp(40px,6.4vw,96px)}
+  .split__text .lead{margin-top:24px}
+  .split__text .lead + .lead{margin-top:18px}
+  .about__cta{margin-top:clamp(34px,4vw,52px)}
+  .split--rev .split__text{padding:0 clamp(40px,6.4vw,96px)}
+  .pic{overflow:hidden;background:var(--paper)}
+  .pic img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.3,1)}
+  .pic:hover img{transform:scale(1.04)}
+  .band .pic{aspect-ratio:4/3}
+
+  /* три формата */
+  .formats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+  .format{
+    padding:clamp(32px,3.2vw,50px) clamp(24px,2.8vw,42px) clamp(32px,3.2vw,50px) 0;
+    border-right:1px solid var(--line);position:relative;
+    transition:background .5s cubic-bezier(.2,.7,.3,1),padding-left .5s cubic-bezier(.2,.7,.3,1);
+  }
+  .format:last-child{border-right:0}
+  .format:hover{background:var(--paper);padding-left:clamp(14px,1.6vw,24px)}
+  .format__num{
+    display:block;font-family:"Playfair Display",Georgia,serif;font-size:2.15rem;line-height:1;
+    color:var(--gold-ink);margin-bottom:26px;
+  }
+  .format h3{font-size:1.35rem;margin-bottom:16px}
+  .format p{color:var(--ink-70);font-size:.95rem}
+  .format__meta{margin-top:22px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-50)}
+  .format__hint{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font-size:.95rem;color:var(--ink)}
+  .format__tag{
+    position:absolute;top:clamp(32px,3.2vw,50px);right:clamp(24px,2.8vw,42px);
+    font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);
+  }
+
+  /* цифры */
+  .numbers-band{background:var(--ink);color:#fff;padding:clamp(52px,5.6vw,84px) 0}
+  .numbers{display:grid;grid-template-columns:repeat(4,1fr)}
+  .numbers > div{padding-left:clamp(20px,2.6vw,40px);border-left:1px solid rgba(255,255,255,.18)}
+  .numbers > div:first-child{padding-left:0;border-left:0}
+  .numbers b{display:block;font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:clamp(2rem,3.2vw,2.85rem);line-height:1;letter-spacing:-.01em;color:#fff}
+  .numbers span{display:block;margin-top:14px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.58)}
+
+  /* фото-полоса с цитатой */
+  /* ступени CEFR: линия с отметками и заполнением */
+  .levels{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(16px,2.2vw,30px);position:relative}
+  .levels::before{content:"";position:absolute;left:0;right:0;top:26px;height:1px;background:var(--line)}
+  .level{position:relative;padding-top:58px}
+  .level::before{
+    content:"";position:absolute;left:0;top:21px;width:11px;height:11px;border-radius:50%;
+    background:var(--white);border:1.5px solid var(--gold);
+  }
+  .level__code{display:block;font-family:"Playfair Display",Georgia,serif;font-size:1.55rem;line-height:1}
+  .level b{display:block;margin-top:8px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink);font-weight:500}
+  .level p{margin-top:14px;font-size:.9rem;color:var(--ink-70);line-height:1.65}
+  .level i{display:block;margin-top:20px;height:3px;background:var(--line);position:relative;overflow:hidden}
+  .level i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w,50%);background:var(--gold)}
+
+  /* преподаватели: список факультета */
+  .teach__head{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,64px);align-items:end;
+    padding-bottom:clamp(28px,3.6vw,48px);border-bottom:1px solid var(--line);
+  }
+  .teach__head .lead{max-width:46ch}
+  .faculty{list-style:none;margin:0;padding:0}
+  .faculty li{
+    display:grid;grid-template-columns:56px minmax(190px,270px) 1fr;gap:clamp(18px,3vw,40px);
+    align-items:center;padding:clamp(20px,2.3vw,30px) 0;border-bottom:1px solid var(--line);
+    transition:padding-left .45s cubic-bezier(.2,.7,.3,1),background .45s;
+  }
+  .faculty li:hover{padding-left:14px;background:linear-gradient(90deg,rgba(185,161,94,.07),rgba(185,161,94,0) 62%)}
+  .faculty__mark{
+    width:52px;height:52px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;
+    font-family:"Playfair Display",Georgia,serif;font-size:1rem;color:var(--ink);
+  }
+  .faculty b{display:block;font-size:1.06rem;font-weight:500}
+  .faculty li div > span{display:block;margin-top:5px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink)}
+  .faculty p{color:var(--ink-70);font-size:.95rem;max-width:60ch}
+
+  .quote-band{position:relative;overflow:hidden;background:#0d1428;padding:var(--sec) 0}
+  .quote-band__mark{
+    display:block;font-family:"Playfair Display",Georgia,serif;font-size:4.2rem;line-height:.6;
+    color:var(--gold);margin-bottom:22px;
+  }
+  .quote-band__bg{position:absolute;inset:0}
+  .quote-band__bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.42}
+  .quote-band__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,14,32,.65),rgba(9,14,32,.75))}
+  .quote-band__in{position:relative;z-index:2;max-width:880px;margin:0 auto;padding:0 26px;text-align:center}
+  .quote-band p{color:#fff;font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.6;font-weight:300}
+  .quote-band footer{margin-top:28px;color:rgba(255,255,255,.7);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase}
+
+  /* цены */
+  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+  .price{padding:clamp(32px,3.2vw,50px) clamp(24px,2.8vw,42px) clamp(34px,3.4vw,50px) 0;border-right:1px solid var(--line);display:flex;flex-direction:column}
+  .price:last-child{border-right:0}
+  .price__name{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-50)}
+  .price__sum{margin-top:22px;font-size:2.3rem;font-weight:300;letter-spacing:-.02em}
+  .price__sum em{font-style:normal;font-size:.86rem;letter-spacing:.06em;color:var(--ink-50)}
+  .price ul{list-style:none;margin:30px 0 34px;padding:0;display:grid;gap:14px;color:var(--ink-70);font-size:.94rem}
+  .price li{padding-left:20px;position:relative}
+  .price li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--gold)}
+  .price .btn{margin-top:auto;align-self:flex-start}
+  .price--best{
+    background:var(--ink);color:#fff;border-right:0;
+    padding:clamp(32px,3.2vw,50px) clamp(22px,2.6vw,38px) clamp(32px,3.2vw,50px);
+  }
+  .price--best .price__name{color:rgba(255,255,255,.62)}
+  .price--best .price__sum{color:#fff}
+  .price--best .price__sum em{color:rgba(255,255,255,.6)}
+  .price--best ul{color:rgba(255,255,255,.82)}
+  .price--best li::before{background:var(--gold)}
+  .price--best .btn--empty{border-color:rgba(255,255,255,.45);color:#fff}
+  .price--best .btn--empty:hover{background:#fff;color:var(--ink);border-color:#fff}
+  .price__tag{
+    display:inline-block;margin-bottom:16px;padding:5px 12px;border:1px solid var(--gold);
+    font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  }
+  .price-note{
+    display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:clamp(30px,3.4vw,48px);
+    padding-top:26px;border-top:1px solid var(--line);font-size:.86rem;color:var(--ink-50);
+  }
+
+  /* галерея */
+  .gallery{display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:repeat(2,1fr);gap:8px;height:clamp(420px,44vw,600px)}
+  .gallery figure{margin:0;position:relative;overflow:hidden;background:var(--paper)}
+  .gallery figure:first-child{grid-row:span 2}
+  .gallery__note{
+    background:var(--ink);color:#fff;padding:clamp(24px,2.6vw,38px);display:flex;flex-direction:column;
+    justify-content:flex-end;gap:14px;
+  }
+  .gallery__note b{font-family:"Playfair Display",Georgia,serif;font-size:1.5rem;font-weight:400;line-height:1.25}
+  .gallery__note span{font-size:.9rem;color:rgba(255,255,255,.7)}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.3,1)}
+  .gallery figure:hover img{transform:scale(1.05)}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;background:linear-gradient(transparent,rgba(9,14,32,.7));color:#fff;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+
+  /* форма */
+  .cta{position:relative;overflow:hidden;background:#0d1428;padding:130px 0}
+  .cta__bg{position:absolute;inset:0}
+  .cta__bg img{width:100%;height:100%;object-fit:cover;object-position:center 60%;opacity:.34}
+  .cta__bg::after{content:"";position:absolute;inset:0;background:rgba(9,14,32,.8)}
+  .cta__in{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(34px,4.4vw,74px);align-items:start}
+  .cta__head{grid-column:1 / -1;max-width:66ch}
+  .cta__side dl{margin:0}
+  .cta__side dl div{padding:0 0 20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.15)}
+  .cta__side dl div:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+  .cta__side dt{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+  .cta__side dd{margin:7px 0 0;color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.7}
+  .cta__form{border-left:1px solid rgba(255,255,255,.18);padding-left:clamp(24px,3vw,46px)}
+  .cta h2{color:#fff}
+  .cta p{color:rgba(255,255,255,.82);margin-top:22px;max-width:46ch}
+  .cta .label{color:rgba(255,255,255,.65)}
+  form{display:grid;gap:24px}
+  form label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.6);display:block;margin-bottom:10px}
+  input,select{width:100%;padding:14px 2px;font:inherit;font-weight:300;color:#fff;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.3);border-radius:0}
+  input::placeholder{color:rgba(255,255,255,.4)}
+  input:focus,select:focus{outline:none;border-bottom-color:var(--gold);box-shadow:0 0 0 3px rgba(185,161,94,.38)}
+  select option{color:#101833}
+  form .btn{background:#fff;color:var(--ink);border-color:#fff;justify-self:start}
+  form .btn:hover{background:transparent;color:#fff}
+  .form__note{font-size:.76rem;color:rgba(255,255,255,.5)}
+  .form__ok{display:none;padding:14px 18px;border:1px solid var(--gold);color:#e8dfc4;font-size:.9rem}
+  .form__ok.is-visible{display:block}
+
+  /* подвал: тёмно-синий, с таблицей часов работы */
+  footer.foot{background:var(--ink);color:rgba(255,255,255,.78);border-top:1px solid rgba(255,255,255,.12);padding:var(--sec-sm) 0 34px}
+  .foot__grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(34px,5vw,80px)}
+  .foot__brand{
+    display:inline-flex;align-items:center;gap:12px;font-size:.84rem;font-weight:600;
+    letter-spacing:.42em;text-transform:uppercase;color:#fff;
+  }
+  .foot__brand i{width:9px;height:9px;border-radius:50%;background:var(--gold);display:block}
+  .foot__lead p{margin-top:20px;font-size:.94rem;max-width:40ch;line-height:1.75}
+  .foot__cta{
+    display:inline-block;margin-top:24px;font-size:.72rem;font-weight:600;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold);border-bottom:1px solid transparent;transition:border-color .4s;
+  }
+  .foot__cta:hover{border-bottom-color:var(--gold)}
+  .foot__hours dl{margin:0;display:grid;gap:0}
+  .foot__hours dl div{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .foot__hours dt{font-size:.82rem;letter-spacing:.06em;white-space:nowrap}
+  .foot__hours dd{margin:0 0 0 auto;font-size:.86rem;color:#fff}
+  .foot__addr{margin-top:24px;font-size:.86rem;line-height:1.9}
+  .foot__base2{
+    display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
+    margin-top:clamp(40px,5vw,66px);padding-top:24px;border-top:1px solid rgba(255,255,255,.14);
+    font-size:.76rem;color:rgba(255,255,255,.5);
+  }
+  .foot__base2 a:hover{color:#fff}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn:hover{transform:none}
+    .pic:hover img{transform:none}
+  }
+
+  @media (max-width:1020px){
+    .split{grid-template-columns:1fr}
+    .split__text,.split--rev .split__text{padding:clamp(40px,7vw,64px) clamp(22px,5vw,40px) 0}
+    .split--rev{display:flex;flex-direction:column-reverse}
+    .formats,.prices{grid-template-columns:1fr}
+    .format,.price{border-right:0;border-bottom:1px solid var(--line);padding:44px 0}
+    .cta__in{grid-template-columns:1fr;gap:50px}
+    .numbers{grid-template-columns:1fr 1fr;gap:30px}
+    .top__utilin{justify-content:center;padding:9px 0;font-size:.72rem;letter-spacing:.14em;gap:8px}
+    .top__utilin a{display:none}
+    .hero__grid{grid-template-columns:1fr}
+    .hero__photo{order:-1;height:46vh;min-height:300px}
+    .hero__panelin{padding:clamp(46px,7vw,70px) clamp(22px,5vw,40px) 70px}
+    .foot__grid2{grid-template-columns:1fr}
+    section{padding:84px 0}
+  }
+  @media (max-width:760px){
+    .top{padding:18px 0}
+    .top .nav{
+      position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;margin:0;
+      background:#0d1428;max-height:0;overflow:hidden;
+      border-top:1px solid rgba(255,255,255,.12);
+      box-shadow:0 24px 40px rgba(9,14,32,.35);
+      transition:max-height .45s cubic-bezier(.2,.7,.3,1);
+    }
+    .top .nav.is-open{max-height:340px}
+    .top .nav a{padding:17px 26px;border-bottom:1px solid rgba(255,255,255,.14)}
+    .burger{display:block;margin-left:auto}
+    .top__cta{display:none}
+    .gallery{grid-template-columns:1fr 1fr}
+  }
+
+  /* мобильные правила новых блоков — в конце таблицы стилей, чтобы перекрывать базовые */
+  @media (max-width:900px){
+    .numbers{grid-template-columns:1fr 1fr;gap:26px 0}
+    .numbers > div:nth-child(odd){padding-left:0;border-left:0}
+    .numbers > div:nth-child(n+3){padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+    .levels{grid-template-columns:1fr 1fr}
+    .levels::before{display:none}
+    .level{padding-top:34px}
+    .teach__head{grid-template-columns:1fr;align-items:start;gap:20px}
+    .faculty li{grid-template-columns:46px 1fr;gap:6px 18px}
+    .faculty li p{max-width:60ch;grid-column:2}
+    .faculty__mark{width:44px;height:44px}
+    .gallery{grid-template-columns:1fr;grid-template-rows:none;height:auto}
+    .gallery figure:first-child{grid-row:auto}
+    .gallery figure{aspect-ratio:4/3}
+    .gallery__note{padding:26px 22px}
+    .cta__in{grid-template-columns:1fr}
+    .cta__form{border-left:0;border-top:1px solid rgba(255,255,255,.18);padding-left:0;padding-top:30px}
+    .cta__head{max-width:none}
+  }
+  @media (max-width:560px){
+    .levels{grid-template-columns:1fr}
+    .level{padding-top:26px}
+  }
+
+    /* цель нажатия в подвале — не меньше 24 px по высоте (WCAG 2.2 AA) на любом указателе */
+  footer a{display:inline-block;padding-top:4px;padding-bottom:4px}
+  .top__utilin a,.cta__side dd a{display:inline-block;padding-top:3px;padding-bottom:3px}
+  .brand{padding-top:2px;padding-bottom:2px}
+@media (max-width:760px){
+    .label{font-size:.74rem}
+    .hero__marks span,.numbers span,.format__meta,.price-note,.gallery figcaption,.foot__cap,
+    .faculty li div > span,.quote-band footer,.cta__side dt,.top__utilin,.trip__meta span,
+    .format__tag,.price__tag,.filters span{font-size:.72rem}
+    footer a,.work__link,.sections a{display:inline-block;padding-top:9px;padding-bottom:9px}
+    label{font-size:.78rem}
+    .level b,.hero__barin span,.values span,.stats span,.trip__meta span,.level__code + b{font-size:.72rem}
+    .top .nav a{display:block;padding-top:15px;padding-bottom:15px}
+
+    .brand{padding-top:10px;padding-bottom:10px}
+  
+    footer a{padding-top:12px;padding-bottom:12px}
+    .foot__nav a,footer nav a{padding-left:6px;padding-right:6px;margin-left:-6px;margin-right:-6px}
+    .cta__side dd a{display:inline-block;padding-top:8px;padding-bottom:8px}
+    footer .brand{padding-top:10px;padding-bottom:10px}
+    .top__utilin a{display:inline-block;padding-top:8px;padding-bottom:8px}
+}
+
+  /* заметная подсказка вместо молчаливого отказа формы */
+  .is-error{border-color:#e8a68f !important;box-shadow:0 0 0 1px #e8a68f}
+  p.form__error{display:none;margin-top:16px;font-size:.9rem;color:#e8a68f}
+  .form__error.is-on{display:block}
+
+  /* «к содержанию»: видно только при навигации с клавиатуры */
+  .skip{position:fixed;left:16px;top:16px;z-index:999;padding:12px 18px;border-radius:2px;
+    background:#14161a;color:#fff;font-size:.92rem;font-weight:600;text-decoration:none;
+    transform:translateY(-280%);transition:transform .2s ease}
+  .skip:focus{transform:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#top">Перейти к содержанию</a>
+
+<header class="top" id="header">
+  <div class="top__util">
+    <div class="wrap top__utilin">
+      <span>Первый урок бесплатно · без обязательств</span>
+      <a href="tel:+74951234567">+7 495 123-45-67</a>
+    </div>
+  </div>
+  <div class="wrap top__in">
+    <a class="brand" href="#top"><i></i>Лингва</a>
+    <nav class="nav" id="nav">
+      <a href="#about">О школе</a>
+      <a href="#levels">Ступени</a>
+      <a href="#formats">Форматы</a>
+      <a href="#prices">Цены</a>
+      <a href="#teachers">Преподаватели</a>
+    </nav>
+    <a class="top__cta" href="#signup">Пробный урок</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav" type="button">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top" tabindex="-1">
+
+  <!-- Первый экран: панель с текстом и фотография -->
+  <section class="hero">
+    <div class="hero__grid">
+      <div class="hero__panel">
+        <div class="hero__panelin">
+          <span class="label">Английский · группы до 6 человек</span>
+          <h1>Язык, на котором говорят, а не сдают тесты</h1>
+          <p>70% времени на занятии говорит ученик. Группы формируем по уровню, а не по возрасту — чтобы учиться было комфортно, а прогресс — заметен уже через месяц.</p>
+          <div class="hero__cta">
+            <a class="btn btn--light" href="#signup" style="background:#fff;color:#101833;border-color:#fff">Записаться на пробный урок</a>
+            <a class="btn btn--light" href="#prices">Цены</a>
+          </div>
+          <div class="hero__marks">
+            <div><b>до 6</b><span>человек в группе</span></div>
+            <div><b>4.9</b><span>оценка занятий</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__photo">
+        <img src="img/lingua-hero.jpg" alt="Светлый класс школы английского, занятие в группе" width="1536" height="1024">
+      </div>
+    </div>
+  </section>
+
+  <!-- О школе -->
+  <section id="about" class="band">
+    <div class="splitb">
+      <div class="splitb__bg"><img src="img/lingua-group.jpg" alt="Ученики на занятии в мини-группе" loading="lazy" width="900" height="600"></div>
+      <div class="wrap splitb__grid">
+        <div class="splitb__text reveal">
+        <span class="label">О школе</span>
+        <h2>Учим говорить, а не бояться ошибок</h2>
+        <p class="lead">Мы открылись в 2016 году: четыре класса, восемь преподавателей и одно правило — на занятии должен говорить ученик, а не преподаватель. Поэтому группы маленькие, а уроки строятся вокруг живых ситуаций: заказать кофе, провести встречу, пройти собеседование.</p>
+        <p class="lead">Определяем уровень по шкале CEFR и показываем путь до цели: сколько ступеней и за какое время. Раз в месяц присылаем отчёт о прогрессе — что получилось и над чем работаем дальше.</p>
+        <div class="about__cta"><a class="btn btn--empty" href="#formats">Форматы занятий</a></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Форматы -->
+  <section id="formats">
+    <div class="wrap">
+      <div class="center reveal sec-head">
+        <span class="label">Форматы</span>
+        <h2>Три способа учиться</h2>
+        <p class="lead">Можно совмещать: например, ходить в группу и раз в неделю брать индивидуальный урок под работу.</p>
+      </div>
+
+      <div class="formats">
+        <article class="format reveal">
+          <span class="format__tag">Выбирают чаще всего</span>
+          <span class="format__num">01</span>
+          <h3>Мини-группа</h3>
+          <p>4–6 человек одного уровня. Живая дискуссия на каждом уроке и домашние с проверкой от преподавателя.</p>
+          <p class="format__meta">2 раза в неделю · 90 минут</p>
+          <p class="format__hint">9 800 ₽ в месяц</p>
+        </article>
+        <article class="format reveal">
+          <span class="format__num">02</span>
+          <h3>Индивидуально</h3>
+          <p>Программа под конкретную задачу: переговоры, релокация, подготовка к собеседованию в международной компании.</p>
+          <p class="format__meta">от 1 до 5 раз в неделю</p>
+          <p class="format__hint">2 800 ₽ за занятие</p>
+        </article>
+        <article class="format reveal">
+          <span class="format__num">03</span>
+          <h3>Разговорный клуб</h3>
+          <p>Только практика речи по темам недели. Хорошо дополняет группу и снимает языковой барьер.</p>
+          <p class="format__meta">1 раз в неделю · онлайн</p>
+          <p class="format__hint">входит в мини-группу</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Цифры -->
+  <section class="numbers-band">
+    <div class="wrap numbers">
+      <div class="reveal"><b>8</b><span>преподавателей</span></div>
+      <div class="reveal"><b>2016</b><span>год основания</span></div>
+      <div class="reveal"><b>3 мес</b><span>одна ступень CEFR</span></div>
+      <div class="reveal"><b>70%</b><span>времени говорит ученик</span></div>
+    </div>
+  </section>
+
+  <!-- Ступени -->
+  <section id="levels">
+    <div class="wrap">
+      <div class="center reveal sec-head">
+        <span class="label">Ступени</span>
+        <h2>Путь от A1 до C1 за учебный год</h2>
+        <p class="lead">Каждая ступень — около трёх месяцев при двух занятиях в неделю. Перед стартом определяем уровень: тест на 20 минут и разговор с преподавателем.</p>
+      </div>
+
+      <div class="levels">
+        <article class="level reveal">
+          <span class="level__code">A1</span><b>Beginner</b>
+          <p>Простые фразы, настоящее время, рассказ о себе. Учимся не бояться говорить вслух.</p>
+          <i style="--w:22%" aria-hidden="true"></i>
+        </article>
+        <article class="level reveal">
+          <span class="level__code">A2</span><b>Elementary</b>
+          <p>Прошедшее и будущее время, бытовые темы, короткие письма и звонки.</p>
+          <i style="--w:40%" aria-hidden="true"></i>
+        </article>
+        <article class="level reveal">
+          <span class="level__code">B1</span><b>Intermediate</b>
+          <p>Свободный разговор на знакомые темы, мнение и аргумент, рабочие встречи.</p>
+          <i style="--w:58%" aria-hidden="true"></i>
+        </article>
+        <article class="level reveal">
+          <span class="level__code">B2</span><b>Upper-Intermediate</b>
+          <p>Беглость и точность, переговоры, презентации, длинные тексты без словаря.</p>
+          <i style="--w:78%" aria-hidden="true"></i>
+        </article>
+        <article class="level reveal">
+          <span class="level__code">C1</span><b>Advanced</b>
+          <p>Сложные темы, нюансы стиля, подготовка к IELTS и работе на английском.</p>
+          <i style="--w:100%" aria-hidden="true"></i>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Фото-полоса с отзывом -->
+  <section class="quote-band band">
+    <div class="quote-band__bg">
+      <img src="img/lingua-club.jpg" alt="" loading="lazy" width="1536" height="1024">
+    </div>
+    <div class="quote-band__in">
+      <span class="quote-band__mark" aria-hidden="true">“</span>
+      <p>«Ходила на курсы дважды и бросала: слишком много грамматики и мало речи. Здесь за три месяца впервые спокойно заговорила на встрече с клиентами. Преподаватель каждый раз записывает мои ошибки и разбирает их на следующем занятии».</p>
+      <footer>Екатерина, уровень B1 → B2</footer>
+    </div>
+  </section>
+
+  <!-- Цены -->
+  <section id="prices">
+    <div class="wrap">
+      <div class="center reveal sec-head">
+        <span class="label">Цены</span>
+        <h2>Абонементы</h2>
+        <p class="lead">Оплата за месяц занятий. Пропущенный урок можно отработать в другой группе.</p>
+      </div>
+
+      <div class="prices">
+        <article class="price reveal">
+          <p class="price__name">Разговорный клуб</p>
+          <p class="price__sum">3 900 ₽ <em>/ месяц</em></p>
+          <ul>
+            <li>4 встречи онлайн</li>
+            <li>Практика речи по темам</li>
+            <li>Разбор ошибок после встречи</li>
+          </ul>
+          <a class="btn btn--empty" href="#signup">Выбрать</a>
+        </article>
+
+        <article class="price price--best reveal">
+          <span class="price__tag">Выбирают чаще всего</span>
+          <p class="price__name">Мини-группа</p>
+          <p class="price__sum">9 800 ₽ <em>/ месяц</em></p>
+          <ul>
+            <li>8 занятий по 90 минут</li>
+            <li>Группа до 6 человек</li>
+            <li>Учебник и рабочая тетрадь</li>
+            <li>Домашние с проверкой</li>
+            <li>Бесплатный разговорный клуб</li>
+          </ul>
+          <a class="btn btn--solid" href="#signup">Записаться</a>
+        </article>
+
+        <article class="price reveal">
+          <p class="price__name">Индивидуально</p>
+          <p class="price__sum">2 800 ₽ <em>/ занятие</em></p>
+          <ul>
+            <li>60 минут, свободный график</li>
+            <li>Программа под вашу цель</li>
+            <li>Перенос занятия без потери</li>
+          </ul>
+          <a class="btn btn--empty" href="#signup">Выбрать</a>
+        </article>
+      </div>
+
+      <div class="price-note">
+        <span>Скидка 10% при оплате за три месяца</span>
+        <span>Один пропуск в месяц можно отработать в другой группе</span>
+        <span>Пробный урок — бесплатно, без обязательств</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Преподаватели -->
+  <section id="teachers">
+    <div class="wrap">
+      <div class="teach__head reveal">
+        <div>
+          <span class="label">Преподаватели</span>
+          <h2>Восемь преподавателей<br> с международными сертификатами</h2>
+        </div>
+        <p class="lead">Все прошли CELTA или DELTA и работают со взрослыми: деловой английский, подготовка к экзаменам, разговорная речь и произношение.</p>
+      </div>
+
+      <ol class="faculty">
+        <li class="reveal">
+          <span class="faculty__mark">МК</span>
+          <div><b>Марина Ковалёва</b><span>CELTA · 12 лет</span></div>
+          <p>Деловой английский и подготовка к собеседованиям в международных компаниях.</p>
+        </li>
+        <li class="reveal">
+          <span class="faculty__mark">АС</span>
+          <div><b>Артём Соколов</b><span>IELTS 8.5 · 9 лет</span></div>
+          <p>Разговорная речь и фонетика: ставим произношение и снимаем языковой барьер.</p>
+        </li>
+        <li class="reveal">
+          <span class="faculty__mark">ЮЛ</span>
+          <div><b>Юлия Ланге</b><span>DELTA · 14 лет</span></div>
+          <p>Уровни B2–C1, письменная речь и академический английский.</p>
+        </li>
+        <li class="reveal">
+          <span class="faculty__mark">ДН</span>
+          <div><b>Дмитрий Новиков</b><span>TESOL · 7 лет</span></div>
+          <p>Разговорный клуб и онлайн-группы: темы недели, дискуссии, разбор ошибок.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Галерея школы -->
+  <section id="rooms">
+    <div class="wrap">
+      <div class="center reveal sec-head">
+        <span class="label">Школа</span>
+        <h2>Где проходят занятия</h2>
+      </div>
+      <div class="gallery">
+        <figure class="reveal">
+          <img src="img/lingua-room.jpg" alt="Класс школы: деревянные столы, белая доска и окна" loading="lazy" width="1400" height="933">
+          <figcaption>Класс для групп</figcaption>
+        </figure>
+        <figure class="reveal">
+          <img src="img/lingua-teacher.jpg" alt="Преподаватель объясняет материал на занятии" loading="lazy" width="900" height="600">
+          <figcaption>Преподаватель на занятии</figcaption>
+        </figure>
+        <div class="gallery__note reveal">
+          <b>Дизайн-завод «Флакон»</b>
+          <span>Большая Новодмитровская, 36 — пять минут от метро Дмитровская. Четыре класса, кофе и зона отдыха между занятиями.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Запись -->
+  <section class="cta band" id="signup">
+    <div class="cta__bg">
+      <img src="img/lingua-study.jpg" alt="" loading="lazy" width="1536" height="1024">
+    </div>
+    <div class="wrap cta__in">
+      <div class="cta__head">
+        <span class="label">Запись</span>
+        <h2>Пробный урок бесплатно</h2>
+        <p>Познакомимся, определим уровень и покажем план до цели. Оставьте контакты — напишем один раз по делу и предложим удобное время.</p>
+      </div>
+      <div class="cta__side">
+        <dl>
+          <div><dt>Адрес</dt><dd>Москва, Большая Новодмитровская, 36<br>дизайн-завод «Флакон», корпус 2, вход с торца</dd></div>
+          <div><dt>Занятия</dt><dd>Пн–Пт 10:00–21:00 · Сб 11:00–18:00<br>Воскресенье — выходной</dd></div>
+          <div><dt>Связь</dt><dd><a href="tel:+74951234567">+7 495 123-45-67</a><br><a href="mailto:hello@lingua-school.ru">hello@lingua-school.ru</a></dd></div>
+        </dl>
+      </div>
+      <form id="signup-form" class="cta__form" novalidate>
+        <div>
+          <label for="s-name">Имя</label>
+          <input id="s-name" name="name" type="text" placeholder="Как к вам обращаться" required autocomplete="name" maxlength="80">
+        </div>
+        <div>
+          <label for="s-contact">Телефон или Telegram</label>
+          <input id="s-contact" name="contact" type="text" placeholder="+7 или @username" required autocomplete="tel" maxlength="64" spellcheck="false" autocapitalize="off">
+        </div>
+        <div>
+          <label for="s-goal">Цель</label>
+          <select id="s-goal" name="goal">
+            <option>Свободно говорить</option>
+            <option>Английский для работы</option>
+            <option>Подготовка к экзамену</option>
+            <option>Начать с нуля</option>
+          </select>
+        </div>
+        <button class="btn" type="submit">Записаться на пробный урок</button>
+        <p class="form__note">Форма проверяет поля и показывает состояния. Приём заявок с сохранением в базу — в сервисе Leadbox из этого портфолио.</p>
+        <p class="form__ok" id="signup-ok">Спасибо! Заявка принята.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid2">
+    <div class="foot__lead">
+      <span class="foot__brand"><i></i>Лингва</span>
+      <p>Школа английского для взрослых: мини-группы до шести человек, разговорная практика с первого занятия и преподаватели с опытом жизни в англоязычной среде.</p>
+      <a class="foot__cta" href="#signup">Пробный урок бесплатно →</a>
+    </div>
+    <div class="foot__hours">
+      <dl>
+        <div><dt>Понедельник — пятница</dt><dd>10:00 — 21:00</dd></div>
+        <div><dt>Суббота</dt><dd>11:00 — 18:00</dd></div>
+        <div><dt>Воскресенье</dt><dd>выходной</dd></div>
+      </dl>
+      <p class="foot__addr">Москва, Большая Новодмитровская, 36<br>дизайн-завод «Флакон», корпус 2<br>+7 495 123-45-67 · hello@lingua-school.ru</p>
+    </div>
+  </div>
+  <div class="wrap foot__base2">
+    <span>© <span id="year"></span> Школа английского «ЛИНГВА»</span>
+    <a href="showcase.html">Все проекты</a>
+    <a href="#top">Наверх ↑</a>
+  </div>
+</footer>
+
+<script>
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  burger.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded','false'); }
+  });
+
+  // шапка: прозрачная поверх фото, дальше — светлая плашка (состояние задаёт класс)
+  var header = document.getElementById('header');
+  var hero = document.querySelector('.hero');
+  var ticking = false;
+  function onScroll() {
+    header.classList.toggle('is-stuck', window.scrollY >= hero.offsetHeight - 90);
+  }
+  onScroll();
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { onScroll(); ticking = false; });
+  }, { passive: true });
+
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  } else { items.forEach(function (el) { el.classList.add('in'); }); }
+
+  // ==== ввод телефона и почты: ограничение, маска, проверка формата ====
+  function digitsOnly(v) { return v.replace(/\D/g, ''); }
+  function ruFormat(d) {
+    if (!d) return '';
+    if (d.charAt(0) !== '7') return '+' + d.slice(0, 15);   // иностранный номер оставляем как есть
+    var out = '+7', r = d.slice(1);
+    if (r) out += ' (' + r.slice(0, 3);
+    if (r.length >= 3) out += ')';
+    if (r.length > 3) out += ' ' + r.slice(3, 6);
+    if (r.length > 6) out += '-' + r.slice(6, 8);
+    if (r.length > 8) out += '-' + r.slice(8, 10);
+    return out;
+  }
+  // 8… и 9… приводим к +7…, лишние цифры (больше 11) отбрасываем
+  function ruDigits(raw) {
+    var d = digitsOnly(raw);
+    if (d.charAt(0) === '8') d = '7' + d.slice(1);
+    else if (d.charAt(0) === '9') d = '7' + d;
+    return d.slice(0, 11);
+  }
+  // каретка: в конец, если печатают/вставляют в конец; иначе — за той же цифрой
+  function putCaret(el, res, left, atEnd) {
+    el.value = res;
+    var i;
+    if (atEnd) { i = res.length; }
+    else {
+      i = 0; var seen = 0;
+      while (i < res.length && seen < left) { if (/\d/.test(res.charAt(i))) seen++; i++; }
+      while (i < res.length && !/\d/.test(res.charAt(i))) i++;
+    }
+    try { el.setSelectionRange(i, i); } catch (e) {}
+  }
+  function applyPhoneMask(el) {
+    var raw = el.value;
+    var caret = el.selectionStart === null ? raw.length : el.selectionStart;
+    var left = digitsOnly(raw.slice(0, caret)).length;
+    var res = ruFormat(ruDigits(raw));
+    if (res !== raw) putCaret(el, res, left, caret >= raw.length);
+  }
+  function maskPhone(el) {
+    if (!el) return;
+    el.setAttribute('maxlength', '18');
+    el.addEventListener('input', function () { applyPhoneMask(el); });
+  }
+  // «+7 или @username»: два режима в одном поле
+  function maskContact(el) {
+    if (!el) return;
+    el.setAttribute('maxlength', '64');
+    el.addEventListener('input', function () {
+      if (el.value.replace(/\s/g, '').charAt(0) === '@') {
+        var nick = '@' + el.value.replace(/\s/g, '').slice(1).replace(/[^A-Za-z0-9_]/g, '').slice(0, 32);
+        if (nick !== el.value) el.value = nick;
+        return;
+      }
+      applyPhoneMask(el);
+    });
+  }
+  function phoneOk(v) {
+    var d = digitsOnly(v);
+    if (d.charAt(0) === '7' || d.charAt(0) === '8') return d.length === 11;
+    return d.length >= 10 && d.length <= 15;
+  }
+  function contactOk(v) {
+    if (v.charAt(0) === '@') return /^@[A-Za-z0-9_]{4,32}$/.test(v);
+    return phoneOk(v);
+  }
+  function trimSpaces(el) {
+    if (!el) return;
+    el.addEventListener('input', function () {
+      var v = el.value.replace(/\s+/g, '');
+      if (v !== el.value) el.value = v;
+    });
+  }
+  function emailOk(v) {
+    if (v.length > 254) return false;
+    var m = /^([^\s@]{1,64})@([^\s@]+\.[A-Za-z]{2,24})$/.exec(v);
+    if (!m) return false;
+    if (/^\.|\.$|\.\./.test(m[1])) return false;
+    if (/\.\./.test(m[2])) return false;
+    return /^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+$/.test(m[2]);
+  }
+  // ==== конец блока форматирования ====
+
+  maskContact(document.getElementById('s-contact'));
+
+  var formEl = document.getElementById('signup-form');
+
+  // подсветка незаполненных и неверно заполненных полей
+  var FORMATS = {'s-contact': contactOk};
+  var NOTE_EMPTY = 'Заполните выделенные поля — напишем и предложим удобное время.';
+  var NOTE_FORMAT = 'Телефон — 11 цифр, например +7 495 123-45-67. Telegram — ник вида @username.';
+  function markErrors(fields) {
+    var bad = [], form = fields[0].form, badFormat = false;
+    fields.forEach(function (el) {
+      var v = el.value.trim(), why = '';
+      if (!v) why = 'empty';
+      else if (FORMATS[el.id] && !FORMATS[el.id](v)) why = 'format';
+      if (why) {
+        el.classList.add('is-error');
+        el.setAttribute('aria-invalid', 'true');
+        if (why === 'format') badFormat = true;
+        bad.push(el);
+      } else {
+        el.classList.remove('is-error');
+        el.removeAttribute('aria-invalid');
+      }
+      el.addEventListener('input', function () {
+        el.classList.remove('is-error');
+        el.removeAttribute('aria-invalid');
+      }, { once: true });
+    });
+    var note = form.querySelector('.form__error');
+    if (!note) {
+      note = document.createElement('p');
+      note.className = 'form__error';
+      note.setAttribute('aria-live', 'polite');
+      form.appendChild(note);
+    }
+    note.textContent = bad.length ? (badFormat ? NOTE_FORMAT : NOTE_EMPTY) : '';
+    note.classList.toggle('is-on', bad.length > 0);
+    if (bad.length) bad[0].focus();
+    return bad.length === 0;
+  }
+
+  formEl.addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    var fields = ['s-name','s-contact'].map(function (id) { return document.getElementById(id); });
+    if (!markErrors(fields)) return;
+    document.getElementById('signup-ok').classList.add('is-visible');
+    this.reset();
+  
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

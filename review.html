@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Просмотр работ — пять страниц портфолио</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --ink:#16181d;
+    --ink-60:rgba(22,24,29,.62);
+    --ink-40:rgba(22,24,29,.4);
+    --paper:#f4f2ee;
+    --card:#fff;
+    --line:rgba(22,24,29,.14);
+    --accent:#2f6b52;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Manrope","Helvetica Neue",Arial,sans-serif;
+    font-size:16px;line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  header.top{border-bottom:1px solid var(--line);background:var(--paper);padding:44px 0 34px}
+  h1{margin:0;font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.15;letter-spacing:-.01em}
+  .sub{margin-top:16px;color:var(--ink-60);max-width:70ch}
+  .nav{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+  .nav a{
+    border:1px solid var(--line);background:#fff;padding:9px 16px;font-size:.82rem;
+    text-decoration:none;color:var(--ink);transition:border-color .3s,transform .3s;
+  }
+  .nav a:hover{border-color:var(--ink);transform:translateY(-1px)}
+  .nav a b{font-weight:600}
+
+  section{padding:56px 0 66px;border-bottom:1px solid var(--line)}
+  .head{display:flex;flex-wrap:wrap;gap:18px;align-items:baseline;justify-content:space-between}
+  .num{
+    font-family:"Playfair Display",Georgia,serif;font-size:.9rem;color:var(--accent);
+    letter-spacing:.16em;text-transform:uppercase;
+  }
+  h2{margin:6px 0 0;font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:clamp(1.35rem,2.4vw,1.95rem);letter-spacing:-.01em}
+  .file{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;
+    color:var(--ink-60);background:#fff;border:1px solid var(--line);padding:6px 12px;white-space:nowrap;
+  }
+  .meta{margin-top:18px;display:grid;grid-template-columns:1.15fr .85fr;gap:34px}
+  .meta p{margin:0}
+  .meta ul{margin:0;padding-left:20px;color:var(--ink-60)}
+  .meta li{margin-bottom:6px}
+  .tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{
+    font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
+    border:1px solid var(--line);padding:5px 11px;color:var(--ink-60);background:#fff;
+  }
+  .shot{
+    margin-top:26px;background:var(--card);border:1px solid var(--line);
+    box-shadow:0 18px 40px rgba(22,24,29,.08);overflow:hidden;
+  }
+  .shot img{display:block;width:100%;height:auto}
+  .caption{
+    display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+    padding:12px 16px;border-top:1px solid var(--line);font-size:.78rem;color:var(--ink-40);
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  .mobrow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
+  .mob{background:#fff;border:1px solid var(--line);padding:10px}
+  .mob img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+  .mob span{display:block;margin-top:8px;font-size:.72rem;color:var(--ink-40);text-align:center}
+  .open{
+    display:inline-block;margin-top:20px;padding:13px 24px;border:1px solid var(--ink);
+    text-decoration:none;color:var(--ink);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+    transition:background .3s,color .3s;
+  }
+  .open:hover{background:var(--ink);color:#fff}
+  .note{
+    margin-top:30px;background:#fff;border-left:3px solid var(--accent);padding:20px 22px;
+    font-size:.94rem;color:var(--ink-60);
+  }
+  .note b{color:var(--ink)}
+  footer{padding:40px 0 60px;font-size:.86rem;color:var(--ink-40)}
+  @media (max-width:900px){
+    .meta{grid-template-columns:1fr;gap:22px}
+    .mobrow{grid-template-columns:repeat(3,1fr)}
+    h1{font-size:clamp(1.6rem,5.6vw,2.4rem)}
+  }
+  @media (max-width:620px){
+    .mobrow{grid-template-columns:repeat(2,1fr)}
+    .nav a{font-size:.78rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Пять страниц портфолио — обзор для проверки</h1>
+    <p class="sub">Ниже каждая работа целиком: снимок всей страницы от первого экрана до подвала, в том же виде, как её увидит посетитель с ноутбука. В конце — как те же страницы выглядят на телефоне. Все снимки сделаны с текущих файлов, без обработки.</p>
+    <p class="sub" style="margin-top:14px">Важное отличие от прошлой версии: у четырёх страниц теперь разные каркасы, а не один. Различаются шапки (тёмная строка · строка со служебной полосой · светлая капсула · тонкая строка с подчёркнутой ссылкой), первые экраны (фото во всю высоту · панель с фотографией рядом · текст с фотографией в рамке · текст внизу над полосой показателей) и подвалы (центрированные выходные данные · тёмный блок с таблицей часов · светлая полоса с приглашением и контактами-чипами · колофон с огромным логотипом). У детской школы заодно новый знак: изометрический пиксель-куб.</p>
+    <nav class="nav">
+      <a href="#p1"><b>01</b> Портфолио</a>
+      <a href="#p2"><b>02</b> Кофейня «ЗЕРНО»</a>
+      <a href="#p3"><b>03</b> Школа «ЛИНГВА»</a>
+      <a href="#p4"><b>04</b> Школа «ПИКСЕЛЬ»</a>
+      <a href="#p5"><b>05</b> WANDER</a>
+    </nav>
+  </div>
+</header>
+
+<section id="p1">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="num">Работа 01</span><h2>Страница-портфолио</h2></div>
+      <span class="file">index.html</span>
+    </div>
+    <div class="meta">
+      <p>Тёмная страница, с которой начинается знакомство: чем занимаюсь, четыре работы с фотографиями, стек, контакты. Это «обложка» всего портфолио — её открывают первой, поэтому здесь важнее всего ясность: что умею и куда нажать, чтобы посмотреть работы.</p>
+      <ul>
+        <li>Четыре карточки работ с реальными снимками</li>
+        <li>Список технологий</li>
+        <li>Контакты и ссылки</li>
+      </ul>
+    </div>
+    <div class="tags"><span>HTML</span><span>CSS Grid</span><span>адаптив</span><span>JavaScript</span></div>
+    <div class="shot">
+      <img src="review/index-desktop.jpg" alt="Страница-портфолио целиком">
+      <div class="caption"><span>снимок всей страницы</span><span>1440 px · высота 3690 px</span></div>
+    </div>
+    <a class="open" href="index.html">Открыть живой файл</a>
+  </div>
+</section>
+
+<section id="p2">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="num">Работа 02</span><h2>Кофейня «ЗЕРНО»</h2></div>
+      <span class="file">zerno-coffee.html</span>
+    </div>
+    <div class="meta">
+      <p>Тёплая крафтовая подача: фотография во весь экран, крупная антиква в заголовках, редакционная сетка «текст + снимок». Логотип собран из настоящего зерна кофе, вырезанного с прозрачным фоном. Это самая «взрослая» работа по подаче — её и смотрим внимательнее всего.</p>
+      <ul>
+        <li>Первый экран — фото на всю высоту с текстом поверх</li>
+        <li>Блок «О нас»: снимок слева, текст справа с отступами</li>
+        <li>Четыре направления в круглых карточках</li>
+        <li>Меню списком с ценами, галерея из шести снимков</li>
+        <li>Отдельный блок обжарки: четыре шага процесса</li>
+        <li>Тёмный призыв поверх фото и форма брони</li>
+        <li>Подвал — центрированные «выходные данные»: адрес, часы, связь в три колонки</li>
+      </ul>
+    </div>
+    <div class="tags"><span>HTML</span><span>CSS</span><span>фото-вёрстка</span><span>локальные шрифты</span><span>форма</span></div>
+    <div class="shot">
+      <img src="review/zerno-desktop.jpg" alt="Лендинг кофейни «ЗЕРНО» целиком">
+      <div class="caption"><span>снимок всей страницы</span><span>1440 px · высота 7736 px</span></div>
+    </div>
+    <div class="note"><b>На что посмотреть:</b> отступы между блоками — должно быть просторно, текст не прилипает к краям; логотип в шапке — одно целое зерно на прозрачном фоне, он виден и на тёмной, и на светлой шапке; фотографии — без следов генерации (кривые руки, лишние детали машин).</div>
+    <a class="open" href="zerno-coffee.html">Открыть живой файл</a>
+  </div>
+</section>
+
+<section id="p3">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="num">Работа 03</span><h2>Школа английского «ЛИНГВА»</h2></div>
+      <span class="file">lingua-school.html</span>
+    </div>
+    <div class="meta">
+      <p>Другая система: тёмно-синий с золотом, строгая и немного «университетская». Форматы занятий идут с номерами, тарифы — сеткой из трёх абонементов, между блоками — фотополоса с отзывом ученицы.</p>
+      <ul>
+        <li>Шапка со служебной строкой: «первый урок бесплатно» и телефон</li>
+        <li>Первый экран: тёмно-синяя панель с текстом и фотография справа во всю высоту</li>
+        <li>Шкала ступеней A1–C1: отметки, описания и полоса прогресса</li>
+        <li>Цифры школы на тёмной полосе с антикварными числами</li>
+        <li>Форматы 01–03 и блок цифр</li>
+        <li>Три абонемента с ценами</li>
+        <li>Запись на пробный урок: форма и панель с адресом, часами и контактами</li>
+        <li>Список преподавателей: монограммы, сертификаты и специализация</li>
+        <li>Галерея-мозаика: большой класс, кадр занятия и тёмная плитка с адресом</li>
+        <li>Подвал — тёмный, с таблицей часов работы по дням</li>
+      </ul>
+    </div>
+    <div class="tags"><span>HTML</span><span>CSS</span><span>тарифы</span><span>адаптив</span></div>
+    <div class="shot">
+      <img src="review/lingua-desktop.jpg" alt="Лендинг школы «ЛИНГВА» целиком">
+      <div class="caption"><span>снимок всей страницы</span><span>1440 px · высота 9007 px</span></div>
+    </div>
+    <a class="open" href="lingua-school.html">Открыть живой файл</a>
+  </div>
+</section>
+
+<section id="p4">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="num">Работа 04</span><h2>Школа «ПИКСЕЛЬ» для детей</h2></div>
+      <span class="file">pixel-kids.html</span>
+    </div>
+    <div class="meta">
+      <p>Третья система — светлая и дружелюбная: зелёный акцент, круглые кнопки, гротеск вместо антиквы. Три ступени обучения по возрастам, разбор одного занятия по шагам, отзыв родителя, ответы на частые вопросы аккордеоном и форма записи на пробный урок.</p>
+      <ul>
+        <li>Новый знак: изометрический пиксель-куб в шапке, в подвале и на иконке вкладки</li>
+        <li>Шапка — светлая капсула поверх страницы, а не тёмная полоса</li>
+        <li>Первый экран светлый: текст слева, снимок занятия в скруглённой рамке справа, ниже — строка 8 / 90 / 3</li>
+        <li>Программы по возрастам 7–9, 10–12, 13–16</li>
+        <li>Фотополоса: код за клавиатурой и сборка робота</li>
+        <li>Аккордеон с вопросами родителей</li>
+        <li>Форма: имя родителя, телефон, возраст ребёнка</li>
+        <li>Подвал — светлая полоса: приглашение на пробное и контакты-чипы</li>
+      </ul>
+    </div>
+    <div class="tags"><span>HTML</span><span>CSS</span><span>аккордеон</span><span>карточки</span></div>
+    <div class="shot">
+      <img src="review/kids-desktop.jpg" alt="Лендинг детской школы «ПИКСЕЛЬ» целиком">
+      <div class="caption"><span>снимок всей страницы</span><span>1440 px · высота 7692 px</span></div>
+    </div>
+    <a class="open" href="pixel-kids.html">Открыть живой файл</a>
+  </div>
+</section>
+
+<section id="p5">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="num">Работа 05</span><h2>WANDER — маршруты для путешествий</h2></div>
+      <span class="file">wander-travel.html</span>
+    </div>
+    <div class="meta">
+      <p>Единственная страница на английском и четвёртая система: песочная палитра, прописные заголовки в разрядку, тонкие линии — стиль экспедиционного журнала. Карточки маршрутов, таблица ближайших вылетов, вопросы и заявка на подбор.</p>
+      <ul>
+        <li>Первый экран: текст прижат вниз, под ним полоса показателей во всю ширину</li>
+        <li>Три маршрута с ценой и длительностью</li>
+        <li>Таблица вылетов с датами и местами</li>
+        <li>Английский текст — как проверка языка</li>
+        <li>Подвал — колофон: адрес, контакты, разделы и огромное слово WANDER во всю ширину</li>
+      </ul>
+    </div>
+    <div class="tags"><span>HTML</span><span>CSS</span><span>English</span><span>таблица</span></div>
+    <div class="shot">
+      <img src="review/wander-desktop.jpg" alt="Лендинг WANDER целиком">
+      <div class="caption"><span>снимок всей страницы</span><span>1440 px · высота 7553 px</span></div>
+    </div>
+    <a class="open" href="wander-travel.html">Открыть живой файл</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:8px">Как это выглядит на телефоне</h2>
+    <p class="sub" style="margin-top:12px">Для каждой страницы два фрагмента: первый экран и середина страницы. Все пять проверены на ширине 390 px — горизонтальной прокрутки нет нигде.</p>
+    <div class="mobrow">
+      <div class="mob"><img src="review/index-mobile.jpg" alt="Портфолио на телефоне"><span>Портфолио</span></div>
+      <div class="mob"><img src="review/zerno-mobile.jpg" alt="Кофейня на телефоне"><span>ЗЕРНО</span></div>
+      <div class="mob"><img src="review/lingua-mobile.jpg" alt="Школа ЛИНГВА на телефоне"><span>ЛИНГВА</span></div>
+      <div class="mob"><img src="review/kids-mobile.jpg" alt="ПИКСЕЛЬ на телефоне"><span>ПИКСЕЛЬ</span></div>
+      <div class="mob"><img src="review/wander-mobile.jpg" alt="WANDER на телефоне"><span>WANDER</span></div>
+    </div>
+    <div class="note" style="margin-top:34px">
+      <b>Что проверено:</b> ноль ошибок в консоли и ноль битых файлов на всех пяти страницах; горизонтальной прокрутки нет на ширинах 1440, 1280, 1024, 900, 768, 480 и 390 px; все изображения загружаются (ленивая загрузка ниже первого экрана); у каждой картинки есть подпись и размеры; контраст текста проверен по WCAG — ни одного значения ниже нормы; поля форм подсвечиваются при пустой отправке; меню, аккордеон и якоря работают. Шрифты подключены из папки <code>fonts/</code>, внешних ссылок нет: страницы открываются без интернета.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:8px">Формы: что можно ввести</h2>
+    <p class="sub" style="margin-top:12px">Поля ограничены по длине, телефон форматируется по ходу набора, а неверный формат не проходит дальше: страница подсвечивает поле и объясняет, что не так. Слева — состояние ошибки, справа — принятая заявка.</p>
+    <img src="review/forms-check.jpg" alt="Формы четырёх лендингов: состояние ошибки и принятая заявка" style="width:100%;display:block;border:1px solid var(--line);margin-top:22px">
+    <ul style="margin:22px 0 0;padding-left:20px;color:var(--ink-60)">
+      <li>Телефон у «Зерна» и «Пикселя»: 11 цифр, набор «89161234567» сам превращается в «+7 (916) 123-45-67», лишние цифры не допечатываются, буквы не вводятся, вставка из буфера чистится.</li>
+      <li>У «Лингвы» то же поле принимает и номер, и ник в Telegram: «@my_nick» — да, «@ab» — нет.</li>
+      <li>Почта в WANDER: «ivan@mail.ru» проходит, «ivan@mail», «ivan..petrov@mail.ru», «.ivan@mail.ru» — нет.</li>
+      <li>Поверх лимитов стоит и проверка на сервере браузера: длинную строку нельзя вставить ни вручную, ни скриптом.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Диловар Сидиков · лендинги свёрстаны вручную, без конструкторов и фреймворков</div>
+</footer>
+
+</body>
+</html>

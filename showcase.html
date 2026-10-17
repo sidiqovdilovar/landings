@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Диловар Сидиков — AI-разработчик и тестировщик</title>
+<meta name="description" content="Портфолио: четыре лендинга, сервис приёма заявок и набор для тестирования. Как ставится задача AI-агенту и как проверяется результат.">
+<meta property="og:title" content="Диловар Сидиков — AI-разработчик и тестировщик">
+<meta property="og:description" content="Четыре лендинга, сервис приёма заявок и набор для тестирования. Процесс работы с AI-агентами и проверка результата.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314161a'/%3E%3Ctext x='16' y='23' font-family='Arial' font-size='15' font-weight='bold' fill='%23e2b17c' text-anchor='middle'%3EDS%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --bg:#f6f4f0;
+    --card:#fff;
+    --ink:#16181d;
+    --ink-70:rgba(22,24,29,.72);
+    --ink-55:rgba(22,24,29,.68);
+    --line:rgba(22,24,29,.14);
+    --accent:#8a5a2b;
+    --accent-2:#b8452c;
+    --dark:#14161a;
+    --sec:clamp(56px,6vw,88px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Manrope","Helvetica Neue",Arial,sans-serif;
+    font-size:16px;line-height:1.62;font-weight:400;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 clamp(22px,4vw,52px)}
+
+  /* «к содержанию» — только для клавиатуры */
+  .skip{position:fixed;left:16px;top:16px;z-index:99;padding:12px 18px;border-radius:2px;
+    background:var(--dark);color:#fff;font-size:.9rem;font-weight:600;text-decoration:none;
+    transform:translateY(-260%);transition:transform .2s ease}
+  .skip:focus{transform:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  .label{
+    display:inline-block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);font-weight:600;
+  }
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.015em}
+  h1{font-size:clamp(1.9rem,4.4vw,3.3rem);line-height:1.05}
+  h2{font-size:clamp(1.35rem,2.4vw,2rem);line-height:1.15}
+  h3{font-size:1.12rem;line-height:1.3}
+  p{margin:0}
+
+  /* шапка */
+  .top{padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(246,244,240,.94);backdrop-filter:blur(8px);z-index:20}
+  .top__in{display:flex;align-items:center;gap:22px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;text-decoration:none;letter-spacing:.02em}
+  .brand i{width:9px;height:9px;border-radius:50%;background:var(--accent-2)}
+  .nav{display:flex;gap:26px;margin-left:auto}
+  .nav a{font-size:.86rem;text-decoration:none;color:var(--ink-70);padding:8px 0;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+  .burger{display:none;margin-left:auto;width:40px;height:40px;border:1px solid var(--line);background:#fff;position:relative;cursor:pointer}
+  .burger span{position:absolute;left:10px;right:10px;height:1.6px;background:var(--ink);transition:transform .25s}
+  .burger span:nth-child(1){top:14px}
+  .burger span:nth-child(2){top:19px}
+  .burger span:nth-child(3){top:24px}
+
+  /* первый экран */
+  .hero{padding:clamp(40px,5.4vw,74px) 0 clamp(34px,4.4vw,56px)}
+  .hero__grid{display:grid;grid-template-columns:1.35fr .85fr;gap:clamp(28px,4vw,60px);align-items:end}
+  .hero .label{margin-bottom:18px}
+  .hero h1{max-width:22ch}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero__lead{margin-top:22px;max-width:56ch;color:var(--ink-70);font-size:1.02rem}
+  .hero__meta{display:grid;gap:14px;padding-top:8px}
+  .meta{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:.9rem;border-top:1px solid var(--line);padding-top:14px}
+  .meta dt{color:var(--ink-55);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding-top:3px}
+  .meta dd{margin:0}
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:2px;
+    font-size:.92rem;font-weight:600;text-decoration:none;border:1px solid var(--ink);
+    background:var(--ink);color:#fff;transition:transform .18s ease,background .18s ease,color .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn--ghost{background:transparent;color:var(--ink)}
+  .btn--ghost:hover{background:var(--ink);color:#fff}
+
+  /* цифры */
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    margin-top:clamp(34px,4.4vw,56px)}
+  .fact{padding:22px clamp(12px,2vw,26px);border-left:1px solid var(--line)}
+  .fact:first-child{border-left:0;padding-left:0}
+  .fact b{display:block;font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1;font-weight:600;letter-spacing:-.02em}
+  .fact span{display:block;margin-top:8px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-55)}
+
+  /* секции */
+  section{padding:var(--sec) 0}
+  .sec-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,50px);align-items:end;margin-bottom:clamp(28px,3.4vw,46px)}
+  .sec-head p{color:var(--ink-70);max-width:52ch}
+
+  /* кейс */
+  .case{
+    background:var(--card);border:1px solid var(--line);display:grid;
+    grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);overflow:hidden;
+  }
+  .case + .case{margin-top:26px}
+  .case__shots{display:grid;grid-template-columns:1fr 118px;gap:0;background:var(--bg);border-right:1px solid var(--line);align-items:start}
+  .case__shots figure{margin:0;padding:16px;display:grid;gap:10px;align-content:start}
+  .case__shots figure + figure{border-left:1px solid var(--line);padding-left:10px;padding-right:10px}
+  .case__shots img{border:1px solid var(--line);width:100%;height:auto;box-shadow:0 1px 0 rgba(22,24,29,.04)}
+  .case__shots figcaption{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-55)}
+  .case__body{padding:clamp(22px,2.6vw,34px);display:grid;gap:14px;align-content:start}
+  .case__top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .case__num{font-size:.74rem;letter-spacing:.18em;color:var(--accent);font-weight:600}
+  .case__body p{color:var(--ink-70);font-size:.95rem}
+  .case__role{padding-top:12px;border-top:1px solid var(--line);font-size:.88rem;color:var(--ink-70)}
+  .case__role b{color:var(--ink);font-weight:600}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+  .tags li{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-70);
+    border:1px solid var(--line);padding:5px 10px;border-radius:999px}
+  .case__link{display:inline-flex;align-items:center;gap:8px;margin-top:4px;font-size:.9rem;font-weight:600;
+    text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px;justify-self:start;color:var(--accent)}
+  .case__link:hover{color:var(--ink);border-bottom-color:var(--ink)}
+
+  /* процесс */
+  .process{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+  .step{padding:clamp(22px,2.6vw,34px) clamp(18px,2.2vw,28px) clamp(22px,2.6vw,34px) 0;border-left:1px solid var(--line)}
+  .step:first-child{border-left:0;padding-left:0}
+  .step b{display:block;font-size:.74rem;letter-spacing:.18em;color:var(--accent);margin-bottom:12px;font-weight:600}
+  .step h3{margin-bottom:10px}
+  .step p{color:var(--ink-70);font-size:.92rem}
+
+  /* проверки */
+  .checks{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+  .check{padding:20px 24px 20px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:30px 1fr;gap:0 14px}
+  .check:nth-child(even){padding-left:24px;border-left:1px solid var(--line)}
+  .check i{font-style:normal;color:var(--accent);font-weight:600;font-size:.86rem;padding-top:2px}
+  .check b{display:block;font-weight:600;font-size:.98rem}
+  .check span{display:block;color:var(--ink-70);font-size:.9rem;margin-top:4px}
+
+  /* контакты */
+  .contact{background:var(--dark);color:#fff;margin-top:var(--sec)}
+  .contact .label{color:#e2b17c}
+  .contact h2{color:#fff;margin-top:14px}
+  .contact__in{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,4vw,64px);align-items:start}
+  .contact p{color:rgba(255,255,255,.78);margin-top:18px;max-width:46ch}
+  .contact dl{margin:0;display:grid;gap:16px}
+  .contact dt{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+  .contact dd{margin:4px 0 0;font-size:1rem}
+  .contact a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:1px}
+  .contact a:hover{border-bottom-color:#fff}
+  .contact .btn{background:#fff;color:var(--dark);border-color:#fff}
+
+  footer.foot{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-55);font-size:.84rem}
+  .foot__in{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between}
+  .foot__in a{display:inline-block;padding-top:4px;padding-bottom:4px}
+
+  @media (max-width:900px){
+    .hero__grid{grid-template-columns:1fr;align-items:start}
+    .facts{grid-template-columns:1fr 1fr}
+    .fact:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--line)}
+    .fact:nth-child(4){border-top:1px solid var(--line)}
+    .sec-head{grid-template-columns:1fr;align-items:start}
+    .case{grid-template-columns:1fr}
+    .case__shots{border-right:0;border-bottom:1px solid var(--line)}
+    .process{grid-template-columns:1fr}
+    .step{border-left:0;padding-left:0;border-top:1px solid var(--line)}
+    .step:first-child{border-top:0}
+    .contact__in{grid-template-columns:1fr}
+  }
+  @media (max-width:760px){
+    .nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;margin:0;background:var(--bg);
+      border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s}
+    .nav.is-open{max-height:320px}
+    .nav a{padding:15px clamp(22px,4vw,52px);border-bottom:1px solid var(--line);font-size:.95rem}
+    .burger{display:block}
+    .checks{grid-template-columns:1fr}
+    .check:nth-child(even){padding-left:0;border-left:0}
+    .brand{padding-top:8px;padding-bottom:8px}
+    .case__link{padding-top:10px;padding-bottom:10px}
+    .contact dd a{display:inline-block;padding-top:10px;padding-bottom:10px}
+    .foot__in a{padding-top:10px;padding-bottom:10px}
+    .case__shots{grid-template-columns:1fr 104px}
+    .case__shots figure{padding:12px}
+    .case__shots figure + figure{border-left:1px solid var(--line);border-top:0;padding-left:8px;padding-right:8px}
+  }
+  @media (max-width:420px){
+    .facts{grid-template-columns:1fr}
+    .fact{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:16px}
+    .fact:first-child{border-top:0}
+    .cta-row .btn{width:100%;justify-content:space-between}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .btn:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#top">Перейти к содержанию</a>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top"><i></i>ДС · Диловар Сидиков</a>
+    <nav class="nav" id="nav">
+      <a href="#cases">Проекты</a>
+      <a href="#process">Как работаю</a>
+      <a href="#checks">Проверки</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top" tabindex="-1">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__grid">
+        <div>
+          <span class="label">AI-разработка · фронтенд · тестирование</span>
+          <h1>Собираю сайты с AI-агентами и <em>отвечаю за результат</em></h1>
+          <p class="hero__lead">Ставлю задачу, проектирую структуру, пишу и правлю код, а потом проверяю его как чужой — тестами и аудитом. Ниже пять проектов: четыре лендинга и сервис приёма заявок.</p>
+          <div class="cta-row">
+            <a class="btn" href="#cases">Смотреть проекты</a>
+            <a class="btn btn--ghost" href="#contact">Написать</a>
+          </div>
+        </div>
+        <div class="hero__meta">
+          <dl class="meta">
+            <dt>Опыт</dt><dd>Практика с 2024 года, проекты полного цикла — 2026</dd>
+            <dt>Инструменты</dt><dd>Claude Code, Cursor, Codex, Copilot; HTML/CSS/JS, Python, Playwright</dd>
+            <dt>Формат</dt><dd>Удалённо · МСК · открыт к тестовому заданию</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><b>5</b><span>проектов: четыре лендинга и сервис</span></div>
+        <div class="fact"><b>7</b><span>ширин экрана в проверке</span></div>
+        <div class="fact"><b>76</b><span>пунктов чек-листа тестирования</span></div>
+        <div class="fact"><b>10</b><span>UI-автотестов, все проходят</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label">Проекты</span>
+          <h2 style="margin-top:12px">Сделано и проверено</h2>
+        </div>
+        <p>У каждого проекта — своя задача и своя визуальная система. Ниже: что требовалось, что сделано и как это проверено.</p>
+      </div>
+
+      <article class="case">
+        <div class="case__shots">
+          <figure>
+            <img src="review/preview/zerno-desk.jpg" alt="Лендинг кофейни «Зерно»: первый экран и меню" width="760" height="1003" loading="lazy">
+            <figcaption>Кофейня · десктоп</figcaption>
+          </figure>
+          <figure>
+            <img src="review/preview/zerno-mob.jpg" alt="Лендинг кофейни на телефоне" width="200" height="1034" loading="lazy">
+            <figcaption>Телефон 390 px</figcaption>
+          </figure>
+        </div>
+        <div class="case__body">
+          <div class="case__top"><span class="case__num">01</span><span class="label">Кофейня «Зерно»</span></div>
+          <h3>Тёплая редакционная подача: серифный заголовок, фото во всю ширину, меню в две колонки</h3>
+          <p>Лендинг для обжарки с барной стойкой: меню с ценами, две фото-полосы, история места, форма брони столика.</p>
+          <p><b>Как проверено:</b> семь ширин, контраст по WCAG, маска телефона, прогон клавиатурой.</p>
+          <p class="case__role"><b>Моя роль:</b> структура, дизайн-система, постановка задач агенту, ревью кода, исправление дефектов.</p>
+          <ul class="tags"><li>HTML/CSS</li><li>JavaScript</li><li>Фото-полосы</li><li>Форма с маской</li></ul>
+          <a class="case__link" href="zerno-coffee.html">Открыть лендинг <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__shots">
+          <figure>
+            <img src="review/preview/lingua-desk.jpg" alt="Лендинг языковой школы «Лингва»: первый экран и ступени" width="760" height="1003" loading="lazy">
+            <figcaption>Языковая школа · десктоп</figcaption>
+          </figure>
+          <figure>
+            <img src="review/preview/lingua-mob.jpg" alt="Лендинг языковой школы на телефоне" width="200" height="1034" loading="lazy">
+            <figcaption>Телефон 390 px</figcaption>
+          </figure>
+        </div>
+        <div class="case__body">
+          <div class="case__top"><span class="case__num">02</span><span class="label">Школа английского «Лингва»</span></div>
+          <h3>Строгая школа: тёмная панель, шкала уровней CEFR, список преподавателей</h3>
+          <p>Страница с уровнями A1–C1, тремя форматами занятий, ценами, преподавателями и записью на пробный урок.</p>
+          <p><b>Как проверено:</b> контраст на тёмных полосах, длина строки, двойное поле «телефон или Telegram».</p>
+          <p class="case__role"><b>Моя роль:</b> сценарий страницы, типографика, работа с фото, разбор дефектов вёрстки.</p>
+          <ul class="tags"><li>Сетка 12 колонок</li><li>CEFR-шкала</li><li>Тёмные секции</li><li>Валидация ника</li></ul>
+          <a class="case__link" href="lingua-school.html">Открыть лендинг <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__shots">
+          <figure>
+            <img src="review/preview/kids-desk.jpg" alt="Лендинг детской школы «Пиксель»: первый экран и программы" width="760" height="1003" loading="lazy">
+            <figcaption>Детская школа · десктоп</figcaption>
+          </figure>
+          <figure>
+            <img src="review/preview/kids-mob.jpg" alt="Лендинг детской школы на телефоне" width="200" height="1034" loading="lazy">
+            <figcaption>Телефон 390 px</figcaption>
+          </figure>
+        </div>
+        <div class="case__body">
+          <div class="case__top"><span class="case__num">03</span><span class="label">Школа «Пиксель» для детей</span></div>
+          <h3>Яркая подача для родителей: ступени по возрасту, аккордеон вопросов, запись на пробное</h3>
+          <p>Три программы, сценарий занятия, цены с выделенным тарифом, FAQ на нативном аккордеоне.</p>
+          <p><b>Как проверено:</b> раскрытие аккордеона, читаемость на светлом фоне, целевые размеры кнопок.</p>
+          <p class="case__role"><b>Моя роль:</b> компоновка блоков, работа с цветом, HTML-аккордеон без библиотек.</p>
+          <ul class="tags"><li>Аккордеон</li><li>Карточки программ</li><li>Яркая палитра</li><li>Адаптив</li></ul>
+          <a class="case__link" href="pixel-kids.html">Открыть лендинг <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__shots">
+          <figure>
+            <img src="review/preview/wander-desk.jpg" alt="Лендинг путешествий Wander: первый экран и маршруты" width="760" height="1003" loading="lazy">
+            <figcaption>Путешествия · десктоп</figcaption>
+          </figure>
+          <figure>
+            <img src="review/preview/wander-mob.jpg" alt="Лендинг путешествий на телефоне" width="200" height="1034" loading="lazy">
+            <figcaption>Телефон 390 px</figcaption>
+          </figure>
+        </div>
+        <div class="case__body">
+          <div class="case__top"><span class="case__num">04</span><span class="label">Wander · путешествия малыми группами</span></div>
+          <h3>Английский лендинг: крупные фото, маршруты, календарь выездов</h3>
+          <p>Три маршрута, календарь выездов, разбор процесса бронирования и запрос дат через форму.</p>
+          <p><b>Как проверено:</b> проверка почты на 13 вариантах адреса, контраст на фото, меню на телефоне.</p>
+          <p class="case__role"><b>Моя роль:</b> единственный англоязычный лендинг в наборе — тексты и вёрстка на английском.</p>
+          <ul class="tags"><li>English copy</li><li>Фото-герой</li><li>Календарь</li><li>Проверка почты</li></ul>
+          <a class="case__link" href="wander-travel.html">Open the landing <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+
+      <article class="case" id="leadbox">
+        <div class="case__shots">
+          <figure>
+            <img src="review/preview/leadbox-form.jpg" alt="Leadbox: форма заявки с проверкой ввода" width="760" height="1003" loading="lazy">
+            <figcaption>Форма · десктоп</figcaption>
+          </figure>
+          <figure>
+            <img src="review/preview/leadbox-admin.jpg" alt="Leadbox: админка со списком заявок" width="760" height="1003" loading="lazy">
+            <figcaption>Админка и статистика</figcaption>
+          </figure>
+        </div>
+        <div class="case__body">
+          <div class="case__top"><span class="case__num">05</span><span class="label">Leadbox · приём заявок</span></div>
+          <h3>Сервис целиком: форма, API, база, админка и A/B-тест заголовка</h3>
+          <p>Заявка проходит проверку на сервере, ложится в базу и появляется в админке. Повторная отправка с тем же контактом блокируется, UTM-метки сохраняются, конверсия считается по двум вариантам заголовка. К этому я пришёл от тестирования: в магазине из набора проверки жили только на клиенте — здесь они на сервере.</p>
+          <p><b>Как проверено:</b> 46 тестов pytest, отдельный smoke-скрипт по HTTP, прогон формы и админки в браузере, мобильная вёрстка.</p>
+          <p class="case__role"><b>Моя роль:</b> схема базы, API, проверка ввода, интерфейс формы и админки, тесты, Docker и CI.</p>
+          <ul class="tags"><li>FastAPI</li><li>SQLite</li><li>pytest</li><li>Docker</li><li>GitHub Actions</li></ul>
+          <a class="case__link" href="https://github.com/sidiqovdilovar/leadbox">Код на GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label">Как работаю</span>
+          <h2 style="margin-top:12px">Агент делает черновик, решения — на мне</h2>
+        </div>
+        <p>AI ускоряет набор кода, но не заменяет постановку задачи и приёмку. Ниже — порядок, по которому шёл каждый проект.</p>
+      </div>
+      <div class="process">
+        <div class="step">
+          <b>01</b>
+          <h3>Бриф</h3>
+          <p>Цель страницы, аудитория, ограничения: локальные шрифты и фото, мобильный приоритет, никаких внешних библиотек.</p>
+        </div>
+        <div class="step">
+          <b>02</b>
+          <h3>Декомпозиция</h3>
+          <p>Разбиваю на секции и задачи. У каждой — критерий приёмки: что считается готовым и как это проверить.</p>
+        </div>
+        <div class="step">
+          <b>03</b>
+          <h3>Генерация</h3>
+          <p>Малыми шагами: одна задача — одна правка. Дизайн-система и правила проекта передаются агенту в контексте.</p>
+        </div>
+        <div class="step">
+          <b>04</b>
+          <h3>Ревью кода</h3>
+          <p>Читаю дифф, проверяю селекторы и побочные эффекты. Ничего не принимаю на веру, пока не прогнал проверку.</p>
+        </div>
+        <div class="step">
+          <b>05</b>
+          <h3>Проверка</h3>
+          <p>Семь ширин, консоль, битые запросы, контраст, клавиатура, формы. Всё, что нашлось, — в работу до нуля.</p>
+        </div>
+        <div class="step">
+          <b>06</b>
+          <h3>Отчёт</h3>
+          <p>Фиксирую, что проверено и что осталось слабым. Отчёт о тестировании — часть проекта, а не приложение.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="checks">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label">Проверки</span>
+          <h2 style="margin-top:12px">Что именно проверено</h2>
+        </div>
+        <p>Список не «для галочки»: по каждому пункту есть прогон и цифра. Подробности — в отчёте о тестировании рядом с проектами.</p>
+      </div>
+      <div class="checks">
+        <div class="check"><i>01</i><div><b>Семь ширин, от 1440 до 390 px</b><span>Консоль чистая, все файлы на месте, страница не вылезает за экран.</span></div></div>
+        <div class="check"><i>02</i><div><b>Контраст по WCAG</b><span>Каждый текстовый узел против фактического фона; ни одного значения ниже AA.</span></div></div>
+        <div class="check"><i>03</i><div><b>Цели нажатия</b><span>От 24 px на десктопе и от 36 px на телефоне — ни одного элемента меньше.</span></div></div>
+        <div class="check"><i>04</i><div><b>Клавиатура и фокус</b><span>Обход по Tab без слепых остановок, видимое кольцо фокуса, ссылка «к содержанию».</span></div></div>
+        <div class="check"><i>05</i><div><b>Формы и ввод</b><span>Маска телефона, проверка почты и ника, понятная ошибка, запрет отправки мусора.</span></div></div>
+        <div class="check"><i>06</i><div><b>Разметка</b><span>Один h1, уникальные id, живые якоря, alt и размеры у картинок, ленивая загрузка.</span></div></div>
+        <div class="check"><i>07</i><div><b>Типографика</b><span>Ни одного кегля меньше 11 px, длина строки не шире 85 знаков.</span></div></div>
+        <div class="check"><i>08</i><div><b>Поведение</b><span>Меню, аккордеоны, якоря и формы проверены на телефоне отдельным прогоном.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact__in">
+      <div>
+        <span class="label">Контакты</span>
+        <h2>Готов обсудить задачу и сделать прототип</h2>
+        <p>Могу взять идею и довести до рабочей страницы или прототипа: структура, вёрстка, проверка. Отвечаю в течение дня.</p>
+        <div class="cta-row">
+          <a class="btn" href="mailto:sidiqovdilovar@gmail.com">Написать на почту</a>
+        </div>
+      </div>
+      <dl>
+        <div><dt>Почта</dt><dd><a href="mailto:sidiqovdilovar@gmail.com">sidiqovdilovar@gmail.com</a></dd></div>
+        <div><dt>Telegram</dt><dd><a href="https://t.me/ProximaCentaurius">@ProximaCentaurius</a></dd></div>
+        <div><dt>Телефон</dt><dd><a href="tel:+79099618388">+7 909 961 83 88</a></dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/sidiqovdilovar">github.com/sidiqovdilovar</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <span>© <span id="year"></span> Диловар Сидиков · страницы свёрстаны вручную, без конструкторов</span>
+    <a href="review.html" style="text-decoration:none;border-bottom:1px solid var(--line)">Разбор работ и отчёт о тестировании</a>
+  </div>
+</footer>
+
+<script>
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  burger.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
