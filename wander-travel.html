@@ -283,7 +283,7 @@
   .foot__word{
     margin:clamp(40px,6vw,90px) auto 0;font-size:clamp(3.4rem,15.5vw,13rem);line-height:.86;
     font-weight:600;letter-spacing:.02em;text-transform:uppercase;
-    color:rgba(239,231,219,.12);text-align:center;white-space:nowrap;
+    color:rgba(239,231,219,.40);text-align:center;white-space:nowrap;
   }
   .foot__base{
     display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
@@ -371,7 +371,7 @@
 <header class="top" id="header">
   <div class="wrap top__in">
     <a class="brand" href="#top"><img src="img/favicon-wander.png" alt="" width="28" height="28">Wander</a>
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" aria-label="Main menu">
       <a href="#trips">Trips</a>
       <a href="#how">How it works</a>
       <a href="#calendar">Calendar</a>
@@ -647,7 +647,7 @@
     </div>
     <div>
       <span class="foot__cap">Sections</span>
-      <nav class="foot__nav"><a href="#trips">Trips</a>
+      <nav class="foot__nav" aria-label="Footer menu"><a href="#trips">Trips</a>
         <a href="#how">How it works</a>
         <a href="#calendar">Trip calendar</a>
         <a href="#faq">FAQ</a>
