@@ -318,6 +318,8 @@
     .reveal{opacity:1;transform:none;transition:none}
     .btn:hover,.card:hover{transform:none}
     .pic:hover img,.duo figure:hover img{transform:none}
+      /* при «меньше движения» гасим не только входные анимации, но и переходы при наведении */
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   }
 
     /* цель нажатия в подвале — не меньше 24 px по высоте (WCAG 2.2 AA) на любом указателе */

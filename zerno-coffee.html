@@ -321,6 +321,8 @@
     .feature:hover .feature__pic img,
     .gallery figure:hover img,
     .pic:hover img{transform:none}
+      /* при «меньше движения» гасим не только входные анимации, но и переходы при наведении */
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   }
 
   @media (max-width:1020px){

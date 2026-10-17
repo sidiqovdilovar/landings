@@ -330,6 +330,8 @@
     .btn:hover{transform:none}
     .trip:hover .trip__pic img{transform:none}
     .trip:hover .trip__link span{transform:none}
+      /* при «меньше движения» гасим не только входные анимации, но и переходы при наведении */
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   }
 
     /* цель нажатия в подвале — не меньше 24 px по высоте (WCAG 2.2 AA) на любом указателе */
