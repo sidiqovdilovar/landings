@@ -429,7 +429,7 @@
   <!-- Первый экран: фото во весь экран -->
   <section class="hero band">
     <div class="hero__bg">
-      <picture><source srcset="img/coffee-hero.webp" type="image/webp"><img fetchpriority="high" decoding="async" src="img/coffee-hero.jpg" alt="Зал кофейни утром: барная стойка, свет из окон" width="1536" height="1024"></picture>
+      <picture><source srcset="img/coffee-hero-480.webp 480w, img/coffee-hero-800.webp 800w, img/coffee-hero-1200.webp 1200w, img/coffee-hero.webp 1536w" sizes="100vw" type="image/webp"><img fetchpriority="high" decoding="async" src="img/coffee-hero.jpg" alt="Зал кофейни утром: барная стойка, свет из окон" width="1536" height="1024"></picture>
     </div>
     <div class="hero__in">
       <span class="label">Собственная обжарка · Москва</span>
@@ -445,7 +445,7 @@
   <!-- О нас: фото слева, текст справа -->
   <section id="about" class="band">
     <div class="splitb">
-      <div class="splitb__bg"><picture><source srcset="img/coffee-window.webp" type="image/webp"><img decoding="async" src="img/coffee-window.jpg" alt="Столик у окна с чашкой кофе" loading="lazy" width="900" height="600"></picture></div>
+      <div class="splitb__bg"><picture><source srcset="img/coffee-window-480.webp 480w, img/coffee-window.webp 900w" sizes="(max-width:620px) 45vw, (max-width:900px) 35vw, 30vw" type="image/webp"><img decoding="async" src="img/coffee-window.jpg" alt="Столик у окна с чашкой кофе" loading="lazy" width="900" height="600"></picture></div>
       <div class="wrap splitb__grid">
         <div class="splitb__text reveal">
         <span class="label">О нас</span>
@@ -468,25 +468,25 @@
 
       <div class="features">
         <article class="feature reveal">
-          <div class="feature__pic"><picture><source srcset="img/coffee-latte.webp" type="image/webp"><img decoding="async" src="img/coffee-latte.jpg" alt="Капучино с узором из молочной пены и питчер" loading="lazy" width="1100" height="1100"></picture></div>
+          <div class="feature__pic"><picture><source srcset="img/coffee-latte-480.webp 480w, img/coffee-latte-800.webp 800w, img/coffee-latte.webp 1100w" sizes="(max-width:620px) 45vw, (max-width:900px) 35vw, 30vw" type="image/webp"><img decoding="async" src="img/coffee-latte.jpg" alt="Капучино с узором из молочной пены и питчер" loading="lazy" width="1100" height="1100"></picture></div>
           <h3>Эспрессо и молоко</h3>
           <p>Настраиваем помол и рецептуру под каждую партию — вкус не «плывёт» от недели к неделе.</p>
         </article>
 
         <article class="feature reveal">
-          <div class="feature__pic"><picture><source srcset="img/coffee-roast-detail.webp" type="image/webp"><img decoding="async" src="img/coffee-roast-detail.jpg" alt="Свежеобжаренное зерно высыпают в лоток охлаждения" loading="lazy" width="1000" height="667"></picture></div>
+          <div class="feature__pic"><picture><source srcset="img/coffee-roast-detail-480.webp 480w, img/coffee-roast-detail-800.webp 800w, img/coffee-roast-detail.webp 1000w" sizes="(max-width:620px) 55vw, (max-width:900px) 45vw, (max-width:1100px) 25vw, 20vw" type="image/webp"><img decoding="async" src="img/coffee-roast-detail.jpg" alt="Свежеобжаренное зерно высыпают в лоток охлаждения" loading="lazy" width="1000" height="667"></picture></div>
           <h3>Обжарка партиями</h3>
           <p>Ростер на 6 кг, профиль ведём вручную и записываем для каждой партии.</p>
         </article>
 
         <article class="feature reveal">
-          <div class="feature__pic"><picture><source srcset="img/coffee-beans.webp" type="image/webp"><img decoding="async" src="img/coffee-beans.jpg" alt="Кофейные зёрна, просыпавшиеся из пакета" loading="lazy" width="900" height="600"></picture></div>
+          <div class="feature__pic"><picture><source srcset="img/coffee-beans-480.webp 480w, img/coffee-beans.webp 900w" sizes="(max-width:620px) 45vw, (max-width:900px) 35vw, 30vw" type="image/webp"><img decoding="async" src="img/coffee-beans.jpg" alt="Кофейные зёрна, просыпавшиеся из пакета" loading="lazy" width="900" height="600"></picture></div>
           <h3>Зерно домой</h3>
           <p>Помол под вашу технику — воронка, гейзер, кофемашина. Дата обжарки всегда на пачке.</p>
         </article>
 
         <article class="feature reveal">
-          <div class="feature__pic"><picture><source srcset="img/coffee-cup.webp" type="image/webp"><img decoding="async" src="img/coffee-cup.jpg" alt="Капучино и круассан на мраморном столе" loading="lazy" width="900" height="600"></picture></div>
+          <div class="feature__pic"><picture><source srcset="img/coffee-cup-480.webp 480w, img/coffee-cup.webp 900w" sizes="(max-width:620px) 45vw, (max-width:900px) 35vw, 30vw" type="image/webp"><img decoding="async" src="img/coffee-cup.jpg" alt="Капучино и круассан на мраморном столе" loading="lazy" width="900" height="600"></picture></div>
           <h3>Кухня с утра</h3>
           <p>Круассаны и десерты печём сами: к открытию они уже на витрине.</p>
         </article>
@@ -553,7 +553,7 @@
   <!-- Обжарка: текст слева, фото справа -->
   <section id="roast" class="band">
     <div class="splitb splitb--rev">
-      <div class="splitb__bg"><picture><source srcset="img/coffee-roaster.webp" type="image/webp"><img decoding="async" src="img/coffee-roaster.jpg" alt="Обжарочный цех: ростер у окна и лоток охлаждения" loading="lazy" width="1400" height="933"></picture></div>
+      <div class="splitb__bg"><picture><source srcset="img/coffee-roaster-480.webp 480w, img/coffee-roaster-800.webp 800w, img/coffee-roaster-1200.webp 1200w, img/coffee-roaster.webp 1400w" sizes="(max-width:620px) 100vw, 50vw" type="image/webp"><img decoding="async" src="img/coffee-roaster.jpg" alt="Обжарочный цех: ростер у окна и лоток охлаждения" loading="lazy" width="1400" height="933"></picture></div>
       <div class="wrap splitb__grid">
         <div class="splitb__text reveal">
         <span class="label">Обжарка</span>
@@ -589,12 +589,12 @@
         <h2>Как это выглядит у нас</h2>
       </div>
       <div class="gallery">
-        <figure class="reveal"><picture><source srcset="img/coffee-latte.webp" type="image/webp"><img decoding="async" src="img/coffee-latte.jpg" alt="Капучино с узором из молочной пены" loading="lazy" width="1100" height="1100"></picture><figcaption>Молоко и рисунок</figcaption></figure>
-        <figure class="reveal"><picture><source srcset="img/coffee-window.webp" type="image/webp"><img decoding="async" src="img/coffee-window.jpg" alt="Место у окна" loading="lazy" width="900" height="600"></picture><figcaption>Столик у окна</figcaption></figure>
-        <figure class="reveal"><picture><source srcset="img/coffee-cup.webp" type="image/webp"><img decoding="async" src="img/coffee-cup.jpg" alt="Капучино и круассан" loading="lazy" width="900" height="600"></picture><figcaption>Завтрак к кофе</figcaption></figure>
-        <figure class="reveal"><picture><source srcset="img/coffee-beans.webp" type="image/webp"><img decoding="async" src="img/coffee-beans.jpg" alt="Зерно" loading="lazy" width="900" height="600"></picture><figcaption>Свежая обжарка</figcaption></figure>
-        <figure class="reveal"><picture><source srcset="img/coffee-hero.webp" type="image/webp"><img decoding="async" src="img/coffee-hero.jpg" alt="Зал" loading="lazy" width="1536" height="1024"></picture><figcaption>Наш зал днём</figcaption></figure>
-        <figure class="reveal"><picture><source srcset="img/coffee-green-beans.webp" type="image/webp"><img decoding="async" src="img/coffee-green-beans.jpg" alt="Мешок зелёного кофе до обжарки" loading="lazy" width="1000" height="667"></picture><figcaption>Зелёное зерно до обжарки</figcaption></figure>
+        <figure class="reveal"><picture><source srcset="img/coffee-latte-480.webp 480w, img/coffee-latte-800.webp 800w, img/coffee-latte.webp 1100w" sizes="(max-width:620px) 45vw, (max-width:900px) 35vw, 30vw" type="image/webp"><img decoding="async" src="img/coffee-latte.jpg" alt="Капучино с узором из молочной пены" loading="lazy" width="1100" height="1100"></picture><figcaption>Молоко и рисунок</figcaption></figure>
+        <figure class="reveal"><picture><source srcset="img/coffee-window-480.webp 480w, img/coffee-window.webp 900w" sizes="(max-width:620px) 45vw, (max-width:900px) 35vw, 30vw" type="image/webp"><img decoding="async" src="img/coffee-window.jpg" alt="Место у окна" loading="lazy" width="900" height="600"></picture><figcaption>Столик у окна</figcaption></figure>
+        <figure class="reveal"><picture><source srcset="img/coffee-cup-480.webp 480w, img/coffee-cup.webp 900w" sizes="(max-width:620px) 45vw, (max-width:900px) 35vw, 30vw" type="image/webp"><img decoding="async" src="img/coffee-cup.jpg" alt="Капучино и круассан" loading="lazy" width="900" height="600"></picture><figcaption>Завтрак к кофе</figcaption></figure>
+        <figure class="reveal"><picture><source srcset="img/coffee-beans-480.webp 480w, img/coffee-beans.webp 900w" sizes="(max-width:620px) 45vw, (max-width:900px) 35vw, 30vw" type="image/webp"><img decoding="async" src="img/coffee-beans.jpg" alt="Зерно" loading="lazy" width="900" height="600"></picture><figcaption>Свежая обжарка</figcaption></figure>
+        <figure class="reveal"><picture><source srcset="img/coffee-hero-480.webp 480w, img/coffee-hero-800.webp 800w, img/coffee-hero-1200.webp 1200w, img/coffee-hero.webp 1536w" sizes="100vw" type="image/webp"><img decoding="async" src="img/coffee-hero.jpg" alt="Зал" loading="lazy" width="1536" height="1024"></picture><figcaption>Наш зал днём</figcaption></figure>
+        <figure class="reveal"><picture><source srcset="img/coffee-green-beans-480.webp 480w, img/coffee-green-beans-800.webp 800w, img/coffee-green-beans.webp 1000w" sizes="(max-width:620px) 45vw, (max-width:900px) 35vw, 30vw" type="image/webp"><img decoding="async" src="img/coffee-green-beans.jpg" alt="Мешок зелёного кофе до обжарки" loading="lazy" width="1000" height="667"></picture><figcaption>Зелёное зерно до обжарки</figcaption></figure>
       </div>
     </div>
   </section>
@@ -612,7 +612,7 @@
   <!-- CTA с фото -->
   <section class="cta band">
     <div class="cta__bg">
-      <picture><source srcset="img/coffee-hero.webp" type="image/webp"><img decoding="async" src="img/coffee-hero.jpg" alt="" loading="lazy" width="1536" height="1024"></picture>
+      <picture><source srcset="img/coffee-hero-480.webp 480w, img/coffee-hero-800.webp 800w, img/coffee-hero-1200.webp 1200w, img/coffee-hero.webp 1536w" sizes="100vw" type="image/webp"><img decoding="async" src="img/coffee-hero.jpg" alt="" loading="lazy" width="1536" height="1024"></picture>
     </div>
     <div class="wrap cta__in">
       <span class="label">Приходите</span>
