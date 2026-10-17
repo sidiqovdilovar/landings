@@ -93,15 +93,17 @@
     box-shadow:0 1px 30px rgba(27,21,18,.05);
     padding:15px 0;
   }
+  .brand{flex-shrink:0}
   .top__in{display:flex;align-items:center;gap:34px}
   .brand{
     font-size:.86rem;letter-spacing:.4em;text-transform:uppercase;color:#fff;
     display:flex;align-items:center;gap:12px;transition:color .4s;
     white-space:nowrap;
+    min-width:0;flex:0 1 auto;
   }
   .top.is-stuck .brand{color:var(--ink)}
   .brand--foot{color:var(--ink)}
-  .brand img{width:24px;height:32px;object-fit:contain;flex:0 0 auto}
+  .brand img{width:26px;height:26px;object-fit:contain;flex:0 0 auto}
   .top .nav{display:flex;gap:32px;margin-left:auto}
   .top .nav a{
     color:rgba(255,255,255,.82);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
@@ -292,7 +294,7 @@
     font-family:"Playfair Display",Georgia,serif;font-size:1.32rem;
     letter-spacing:.34em;text-transform:uppercase;
   }
-  .foot__mark img{width:24px;height:32px}
+  .foot__mark img{width:26px;height:26px;object-fit:contain}
   .foot__tag{margin-top:16px;color:var(--ink-55);font-size:.92rem}
   .foot__row{
     display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:840px;
@@ -395,7 +397,7 @@
 <header class="top" id="header">
   <div class="wrap top__in">
     <a class="brand" href="#top">
-      <img src="img/coffee-bean.png" alt="" width="24" height="32">
+      <img src="img/coffee-bean.png" alt="" width="26" height="26">
       Зерно
     </a>
     <nav class="nav" id="nav" aria-label="Основное меню">
@@ -666,7 +668,7 @@
 <footer class="foot">
   <div class="wrap">
     <a class="foot__mark" href="#top">
-      <img src="img/coffee-bean.png" alt="" width="24" height="32">
+      <img src="img/coffee-bean.png" alt="" width="26" height="26">
       <span>Зерно</span>
     </a>
     <p class="foot__tag">Собственная обжарка и кофейня на Садовой-Кудринской — с 2018 года</p>
