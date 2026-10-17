@@ -210,6 +210,7 @@
       /* при «меньше движения» гасим не только входные анимации, но и переходы при наведении */
     *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   }
+  picture{display:contents}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -315,7 +316,7 @@
       <div class="works">
         <article class="work reveal">
           <div class="work__preview">
-            <img src="img/leadbox-wide.jpg" alt="Leadbox — форма заявки с проверкой полей" loading="lazy" style="width:100%;height:100%;object-fit:cover" width="1536" height="483">
+            <picture><source srcset="img/leadbox-wide.webp" type="image/webp"><img fetchpriority="high" decoding="async" src="img/leadbox-wide.jpg" alt="Leadbox — форма заявки с проверкой полей" loading="lazy" style="width:100%;height:100%;object-fit:cover" width="1536" height="483"></picture>
           </div>
           <div class="work__body">
             <div class="work__tags"><span>FastAPI</span><span>SQLite</span><span>pytest</span><span>Docker</span></div>
@@ -327,7 +328,7 @@
 
         <article class="work reveal">
           <div class="work__preview">
-            <img src="img/coffee-hero.jpg" alt="Кофейня «ЗЕРНО» — первый экран с фотографией" loading="lazy" style="width:100%;height:100%;object-fit:cover" width="1536" height="1024">
+            <picture><source srcset="img/coffee-hero.webp" type="image/webp"><img decoding="async" src="img/coffee-hero.jpg" alt="Кофейня «ЗЕРНО» — первый экран с фотографией" loading="lazy" style="width:100%;height:100%;object-fit:cover" width="1536" height="1024"></picture>
           </div>
           <div class="work__body">
             <div class="work__tags"><span>HTML</span><span>CSS</span><span>фото-вёрстка</span><span>форма</span></div>
@@ -339,7 +340,7 @@
 
         <article class="work reveal">
           <div class="work__preview">
-            <img src="img/lingua-hero.jpg" alt="Школа английского «ЛИНГВА» — первый экран с фотографией" loading="lazy" style="width:100%;height:100%;object-fit:cover" width="1536" height="1024">
+            <picture><source srcset="img/lingua-hero.webp" type="image/webp"><img decoding="async" src="img/lingua-hero.jpg" alt="Школа английского «ЛИНГВА» — первый экран с фотографией" loading="lazy" style="width:100%;height:100%;object-fit:cover" width="1536" height="1024"></picture>
           </div>
           <div class="work__body">
             <div class="work__tags"><span>HTML</span><span>CSS</span><span>фото-вёрстка</span><span>тарифы</span></div>
@@ -351,7 +352,7 @@
 
         <article class="work reveal">
           <div class="work__preview">
-            <img src="img/kids-hero.jpg" alt="Школа «ПИКСЕЛЬ» — дети занимаются в классе" loading="lazy" style="width:100%;height:100%;object-fit:cover" width="1536" height="1024">
+            <picture><source srcset="img/kids-hero.webp" type="image/webp"><img decoding="async" src="img/kids-hero.jpg" alt="Школа «ПИКСЕЛЬ» — дети занимаются в классе" loading="lazy" style="width:100%;height:100%;object-fit:cover" width="1536" height="1024"></picture>
           </div>
           <div class="work__body">
             <div class="work__tags"><span>HTML</span><span>CSS</span><span>фото-вёрстка</span><span>аккордеон</span></div>
@@ -363,7 +364,7 @@
 
         <article class="work reveal">
           <div class="work__preview">
-            <img src="img/wander-hero.jpg" alt="WANDER — путешественник на горной тропе" loading="lazy" style="width:100%;height:100%;object-fit:cover" width="1536" height="1024">
+            <picture><source srcset="img/wander-hero.webp" type="image/webp"><img decoding="async" src="img/wander-hero.jpg" alt="WANDER — путешественник на горной тропе" loading="lazy" style="width:100%;height:100%;object-fit:cover" width="1536" height="1024"></picture>
           </div>
           <div class="work__body">
             <div class="work__tags"><span>HTML</span><span>CSS</span><span>English</span><span>фото-вёрстка</span></div>

@@ -42,6 +42,7 @@
   p{margin:0;text-wrap:pretty}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
+  picture{display:contents}
   .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(22px,3.4vw,40px)}
 
   /* вертикальный ритм: та же шкала, что на кофейной странице */
@@ -515,7 +516,7 @@
         </div>
       </div>
       <div class="hero__photo">
-        <img src="img/lingua-hero.jpg" alt="Светлый класс школы английского, занятие в группе" width="1536" height="1024">
+        <picture><source srcset="img/lingua-hero.webp" type="image/webp"><img fetchpriority="high" decoding="async" src="img/lingua-hero.jpg" alt="Светлый класс школы английского, занятие в группе" width="1536" height="1024"></picture>
       </div>
     </div>
   </section>
@@ -523,7 +524,7 @@
   <!-- О школе -->
   <section id="about" class="band">
     <div class="splitb">
-      <div class="splitb__bg"><img src="img/lingua-group.jpg" alt="Ученики на занятии в мини-группе" loading="lazy" width="900" height="600"></div>
+      <div class="splitb__bg"><picture><source srcset="img/lingua-group.webp" type="image/webp"><img decoding="async" src="img/lingua-group.jpg" alt="Ученики на занятии в мини-группе" loading="lazy" width="900" height="600"></picture></div>
       <div class="wrap splitb__grid">
         <div class="splitb__text reveal">
         <span class="label">О школе</span>
@@ -624,7 +625,7 @@
   <!-- Фото-полоса с отзывом -->
   <section class="quote-band band">
     <div class="quote-band__bg">
-      <img src="img/lingua-club.jpg" alt="" loading="lazy" width="1536" height="1024">
+      <picture><source srcset="img/lingua-club.webp" type="image/webp"><img decoding="async" src="img/lingua-club.jpg" alt="" loading="lazy" width="1536" height="1024"></picture>
     </div>
     <div class="quote-band__in">
       <span class="quote-band__mark" aria-hidden="true">“</span>
@@ -733,11 +734,11 @@
       </div>
       <div class="gallery">
         <figure class="reveal">
-          <img src="img/lingua-room.jpg" alt="Класс школы: деревянные столы, белая доска и окна" loading="lazy" width="1400" height="933">
+          <picture><source srcset="img/lingua-room.webp" type="image/webp"><img decoding="async" src="img/lingua-room.jpg" alt="Класс школы: деревянные столы, белая доска и окна" loading="lazy" width="1400" height="933"></picture>
           <figcaption>Класс для групп</figcaption>
         </figure>
         <figure class="reveal">
-          <img src="img/lingua-teacher.jpg" alt="Преподаватель объясняет материал на занятии" loading="lazy" width="900" height="600">
+          <picture><source srcset="img/lingua-teacher.webp" type="image/webp"><img decoding="async" src="img/lingua-teacher.jpg" alt="Преподаватель объясняет материал на занятии" loading="lazy" width="900" height="600"></picture>
           <figcaption>Преподаватель на занятии</figcaption>
         </figure>
         <div class="gallery__note reveal">
@@ -751,7 +752,7 @@
   <!-- Запись -->
   <section class="cta band" id="signup">
     <div class="cta__bg">
-      <img src="img/lingua-study.jpg" alt="" loading="lazy" width="1536" height="1024">
+      <picture><source srcset="img/lingua-study.webp" type="image/webp"><img decoding="async" src="img/lingua-study.jpg" alt="" loading="lazy" width="1536" height="1024"></picture>
     </div>
     <div class="wrap cta__in">
       <div class="cta__head">

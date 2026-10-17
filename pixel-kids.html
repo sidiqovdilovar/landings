@@ -48,6 +48,7 @@
   p{margin:0;text-wrap:pretty}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
+  picture{display:contents}
   .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(22px,3.4vw,40px)}
   .label{
     display:block;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
@@ -358,7 +359,7 @@
 
 <header class="top" id="header">
   <div class="wrap top__in">
-    <a class="brand" href="#top"><img src="img/logo-kids.png" alt="" width="34" height="34">Пиксель</a>
+    <a class="brand" href="#top"><img decoding="async" src="img/logo-kids.png" alt="" width="34" height="34">Пиксель</a>
     <nav class="nav" id="nav" aria-label="Основное меню">
       <a href="#about">О школе</a>
       <a href="#programs">Программы</a>
@@ -388,7 +389,7 @@
         </div>
       </div>
       <div class="hero__pic">
-        <img src="img/kids-hero.jpg" alt="Дети занимаются на ноутбуках в светлом классе" width="1536" height="1024">
+        <picture><source srcset="img/kids-hero.webp" type="image/webp"><img fetchpriority="high" decoding="async" src="img/kids-hero.jpg" alt="Дети занимаются на ноутбуках в светлом классе" width="1536" height="1024"></picture>
       </div>
     </div>
     <div class="wrap hero__marks">
@@ -401,7 +402,7 @@
   <!-- О школе -->
   <section id="about" class="band">
     <div class="splitb">
-      <div class="splitb__bg"><img src="img/kids-teacher.jpg" alt="Преподаватель помогает ребёнку с заданием" loading="lazy" width="1100" height="733"></div>
+      <div class="splitb__bg"><picture><source srcset="img/kids-teacher.webp" type="image/webp"><img decoding="async" src="img/kids-teacher.jpg" alt="Преподаватель помогает ребёнку с заданием" loading="lazy" width="1100" height="733"></picture></div>
       <div class="wrap splitb__grid">
         <div class="splitb__text reveal">
         <span class="label">О школе</span>
@@ -464,11 +465,11 @@
   <section class="band">
     <div class="wrap duo">
       <figure class="reveal">
-        <img src="img/kids-hands.jpg" alt="Ребёнок печатает код на ноутбуке" loading="lazy" width="1000" height="666">
+        <picture><source srcset="img/kids-hands.webp" type="image/webp"><img decoding="async" src="img/kids-hands.jpg" alt="Ребёнок печатает код на ноутбуке" loading="lazy" width="1000" height="666"></picture>
         <figcaption>Печатают руками с первого месяца — не перетаскивают блоки мышкой</figcaption>
       </figure>
       <figure class="reveal">
-        <img src="img/kids-robot.jpg" alt="Дети собирают робота из образовательного набора" loading="lazy" width="1000" height="667">
+        <picture><source srcset="img/kids-robot.webp" type="image/webp"><img decoding="async" src="img/kids-robot.jpg" alt="Дети собирают робота из образовательного набора" loading="lazy" width="1000" height="667"></picture>
         <figcaption>Собираем робота, подключаем датчики и проверяем в деле</figcaption>
       </figure>
     </div>
@@ -664,7 +665,7 @@
 <footer class="foot">
   <div class="wrap foot__top">
     <div>
-      <a class="brand" href="#top"><img src="img/logo-kids.png" alt="" width="34" height="34">Пиксель</a>
+      <a class="brand" href="#top"><img decoding="async" src="img/logo-kids.png" alt="" width="34" height="34">Пиксель</a>
       <h2>Приходите на пробное занятие</h2>
       <p>90 минут, бесплатно и без обязательств: ребёнок уходит с первой готовой программой, а вы — с пониманием, подходит ли ему такая учёба.</p>
     </div>
