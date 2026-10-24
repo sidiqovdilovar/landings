@@ -34,7 +34,6 @@ jobs:
           args: >-
             --verbose
             --no-progress
-            --exclude-hidden
             --exclude "sidiqovdilovar.github.io"
             "**/*.html"
             "./README.md"
