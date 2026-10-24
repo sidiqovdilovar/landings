@@ -1,0 +1,53 @@
+name: quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # Валидация HTML через Nu Html Checker (тот же движок, что у validator.w3.org)
+  vnu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Nu Html Checker
+        run: |
+          curl -sL -o vnu.jar https://github.com/validator/validator/releases/download/latest/vnu.jar
+          java -jar vnu.jar \
+            --skip-non-html \
+            --errors-only \
+            index.html showcase.html review.html zerno-coffee.html \
+            lingua-school.html pixel-kids.html wander-travel.html 404.html
+
+  # Проверка битых ссылок по всем страницам
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --exclude-hidden
+            --exclude "sidiqovdilovar.github.io"
+            "**/*.html"
+            "./README.md"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Lighthouse по статической сборке (без деплоя Pages)
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: treosh/lighthouse-ci-action@v12
+        with:
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          configPath: ./.github/lighthouse/config.json
